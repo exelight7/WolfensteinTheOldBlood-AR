@@ -1,0 +1,40 @@
+{
+  "dialogue_entries": 1586,
+  "entries_with_text": 1548,
+  "text_states": {
+    "text": 1548,
+    "empty": 15,
+    "placeholder": 23
+  },
+  "categories": {
+    "ambient_dialogue": 344,
+    "combat_chatter": 348,
+    "cutscene_dialogue": 10,
+    "story_dialogue": 884
+  },
+  "groups": {
+    "c01": 180,
+    "c02": 171,
+    "c03": 215,
+    "c04": 218,
+    "c05": 229,
+    "c06": 71,
+    "c07": 13,
+    "c08": 85,
+    "c15": 3,
+    "unassigned": 401
+  },
+  "entries_with_voice_references": 999,
+  "chunk_indexes_scanned": 8,
+  "voice_resources_scanned": 11533,
+  "resource_types": {
+    "voicetrack": 10538,
+    "voiceover": 995
+  },
+  "voice_resources_referencing_empty_key": 10364,
+  "limitations": [
+    "All written dialogue candidates in the extracted English table, not a transcription of uncaptioned audio.",
+    "IDs and voice-resource references are retained; timed blocks are not split or deduplicated.",
+    "Source naming is used for grouping; playback order and speaker ownership may need review."
+  ]
+}

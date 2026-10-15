@@ -31,3 +31,11 @@ Translate 33 main-menu and adjacent help/navigation entries as a small source-da
 User explicitly requested installation. Generate pre-shaped/BiDi text and append PUA glyphs to four English fonts, preserving original glyph indices, kerning bytes and atlas pixels. This is a rendering hypothesis for the first runtime test, not a final engine capability conclusion. Obtain IBM font from a pinned official revision with OFL. Avoid unsupported mipmapped cyrillic and Japanese resources.
 
 Append replacement resources locally instead of moving original archive content. Modify only selected index offset/size fields. Structural no-op, repeat-build, already-patched idempotency, 11 synthetic tests and real original restoration checks passed. Install from verified backups and hashes; current state is reinstalled pilot. In-game verification remains pending.
+
+## 2026-10-15 — Supersede append-only repacking after runtime crash
+
+The game reported `idBackgroundLoader::BeginBackgroundLoads: FileTable is out of order`. Restore verified originals first, then rebuild resources in the original table order and shift later offsets. Keep untouched stored payloads byte-identical. Add a regression test replacing a middle resource, and reject unordered/overlapping input. Supersedes the preceding append-to-end decision. Ordered build passed common preloading; user supplied an actual Arabic main-menu screenshot. Preserve failed build/log evidence locally.
+
+## 2026-10-15 — Extract dialogue only
+
+User requested all dialogue, without translation. Export source-name-classified VO, EV, actor/AI dialogue and cutscene speech; exclude menus, confirmation dialogs, speaker-name labels and title cards. Cross-reference every voiceover/voicetrack resource in the eight chunks. Binary VTR identifiers use their preceding little-endian string length to avoid treating following binary bytes as ID suffixes. Keep duplicates, timing/language tags, source literals/hashes and empty/placeholder records; don't invent speech for uncaptioned audio. Full English remains local and ignored by Git.
