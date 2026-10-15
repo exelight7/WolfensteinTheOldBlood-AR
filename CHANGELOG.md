@@ -8,3 +8,4 @@
 - Built and installed the experimental main-menu pilot with IBM Arabic PUA/SDF glyphs; verified real original restore and reinstall hashes. Actual game rendering remains unverified.
 - Fixed startup FileTable is out of order by rebuilding payloads in table order; actual user screenshot confirms Arabic main-menu display.
 - Exported dialogue only: 1586 source records (1548 with text) after scanning all eight chunk voice resources; no dialogue translation performed.
+- Audited all 90863 chunk payloads without decode failures, exported 3574 confirmed electronic-text records and retained additional UI/native candidates for classification; global visual-text completeness remains unverified and translation is on hold.

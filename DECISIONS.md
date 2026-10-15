@@ -39,3 +39,7 @@ The game reported `idBackgroundLoader::BeginBackgroundLoads: FileTable is out of
 ## 2026-10-15 — Extract dialogue only
 
 User requested all dialogue, without translation. Export source-name-classified VO, EV, actor/AI dialogue and cutscene speech; exclude menus, confirmation dialogs, speaker-name labels and title cards. Cross-reference every voiceover/voicetrack resource in the eight chunks. Binary VTR identifiers use their preceding little-endian string length to avoid treating following binary bytes as ID suffixes. Keep duplicates, timing/language tags, source literals/hashes and empty/placeholder records; don't invent speech for uncaptioned audio. Full English remains local and ignored by Git.
+
+## 2026-10-15 — Gate translation on honest source completeness
+
+Owner requires extraction completeness before translation. Audit all 90863 chunk payloads rather than only localization-name matches; decoding and payload scanning achieved 100% with zero failures. Keep separate metrics for known table extraction, resource coverage, confirmed text and unclassified literals. Preserve original master/IDs; generate an extended local corpus for the two loose warning strings. Retain unknown keys as English=null and keep whitespace-bearing native keys intact. Do not claim a global percentage while BSWF field coverage, missing references, image/video text and runtime messages remain unverified. Translation remains HOLD.

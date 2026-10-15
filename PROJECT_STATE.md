@@ -2,7 +2,7 @@
 
 Date: 2026-10-15
 
-- Phase: dialogue extraction only, requested after the main-menu pilot appeared in the user's game screenshot.
+- Phase: complete text-source audit requested before any further translation. Translation gate: HOLD.
 - Build: workspace/menu_pilot_ordered, 33 translated records, 73 generated Arabic forms mapped to PUA, four font/atlas pairs changed. Ordered build installed on 2026-10-15. Previous append-only build crashed and is superseded.
 - Translation percentage: 0.92% of the main English table; complete game scope still UNVERIFIED.
 - Main English table: 3572 unique IDs, 82 empty values, 241 duplicate-value groups; translated/reviewed/in-game verified: 33/0/0.
@@ -23,7 +23,13 @@ Date: 2026-10-15
 - Dialogue export: workspace/dialogue/ALL_DIALOGUE.local.jsonl and .md; 1586 source records, 1548 text-bearing, 15 empty, 23 placeholders. Per-source-chapter files also generated. No dialogue translated.
 - Dialogue audit: 8 chunk indexes, 11533 voice resources (10538 voicetracks, 995 voiceover declarations), 999 exported IDs have direct voice-resource references, zero unresolved referenced IDs. Remaining dialogue IDs retained from source naming, not discarded.
 - Limits: this exports written dialogue, not speech-to-text for audio without captions; playback order and speaker ownership inside multi-speaker blocks still need review.
+- Full chunk payload audit: 90863/90863 records decoded and scanned (100%), zero failures, 50595 unique payloads; 17082 candidate source snapshots retained locally.
+- Confirmed electronic-text corpus: 3574 records (3572 main English table plus 2 loose driver warnings), under workspace/all_text; primary local master and menu pilot unchanged.
+- Raw supplementary candidates: 646186 quoted/UI occurrences and 190514 native-binary printable runs. These are mostly technical strings, not a claimed translation count. 204 distinct phrase candidates prepared for review.
+- References: 25 missing English IDs (3 faction, 16 secrets, 6 UI), plus one preserved native key with a trailing space. No missing English fabricated.
+- Current extraction percentage: archive payload scanning 100%; main English table extraction 100%; total player-visible text percentage UNKNOWN. See docs/TEXT_COVERAGE.md for explicit remaining gates.
+- Tests: full suite now 19 passing synthetic tests. No new translation or game-file modifications during this audit.
 
 ## NEXT ACTION
 
-Wait for the owner's next instruction after dialogue extraction. All written dialogue is available locally with English, escaped literals, source IDs/hashes, tags and reference metadata; Arabic remains blank. Do not translate, install new changes or transcribe audio unless requested.
+Keep translation on HOLD. Parse/review BSWF v20 text/action fields and the 204 phrase candidates, resolve the 25 missing-source IDs based on actual use, and plan visual/native-message coverage using docs/TEXT_COVERAGE.md. Do not equate 100% payload scanning with 100% visible-text extraction; image/video/virtualtexture text and runtime-only messages remain unverified.

@@ -14,4 +14,6 @@ The ordered menu pilot has been installed locally with verified hashes; startup 
 
 Dialogue-only export is available locally: 1586 source records, 1548 with text; no dialogue translation performed. See [extraction instructions](docs/DIALOGUE_EXTRACTION.md). Full English is excluded from Git.
 
+Text audit: 100% of 90863 chunk payloads decoded/scanned; 3574 confirmed electronic-text records extracted. This is **not** a claim of 100% of all visible game text. Further translation is on hold pending the [coverage gates](docs/TEXT_COVERAGE.md).
+
 Original game assets and the complete English script remain local and are excluded from Git. A legally installed copy is required. Our code is MIT licensed; proprietary game content is not covered by that license. Arabic translation data licensing will be established before public translation contributions.
