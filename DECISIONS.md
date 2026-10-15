@@ -25,3 +25,9 @@ The initial strict DEFLATE-final-block assumption failed against local fonts. Re
 ## 2026-10-15 — User-requested main-menu translation pilot
 
 Translate 33 main-menu and adjacent help/navigation entries as a small source-data pilot, while keeping mass translation gated. Use normal Unicode Arabic, source-qualified native IDs and existing English hashes. The selected strings contain no formatting placeholders or newlines. Preserve all English and unrelated records; backup local master before merge. Status is translated, never reviewed or in_game_verified. No archive installation is implied by this translation checkpoint.
+
+## 2026-10-15 — Install the user-requested experimental pilot
+
+User explicitly requested installation. Generate pre-shaped/BiDi text and append PUA glyphs to four English fonts, preserving original glyph indices, kerning bytes and atlas pixels. This is a rendering hypothesis for the first runtime test, not a final engine capability conclusion. Obtain IBM font from a pinned official revision with OFL. Avoid unsupported mipmapped cyrillic and Japanese resources.
+
+Append replacement resources locally instead of moving original archive content. Modify only selected index offset/size fields. Structural no-op, repeat-build, already-patched idempotency, 11 synthetic tests and real original restoration checks passed. Install from verified backups and hashes; current state is reinstalled pilot. In-game verification remains pending.

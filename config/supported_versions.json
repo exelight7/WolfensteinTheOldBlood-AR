@@ -1,5 +1,5 @@
 {
   "schema_version": 1,
   "supported_versions": [],
-  "note": "Steam build 616161 has been inventoried; no version is verified for patching or installation."
+  "note": "Steam build 616161 exact source hashes are accepted for the experimental local menu pilot. Structural build/install/restore passed; no runtime-supported public version is declared yet."
 }

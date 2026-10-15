@@ -14,7 +14,7 @@ The independent reader consumed all eight chunk indexes exactly (no trailing byt
 
 `strings/english.lang` is chunk0 entry 22456 (zero-based), offset 89773744, stored/uncompressed size 408195. Its SHA-256 is `6eeb295fffe09106c839c05fcfda8ef97913e3b0bcdee4057314135c4a7c0d1a`. UTF-8 BOM, CRLF, braced quoted key/value table, native #str_ IDs. Parsed 3572 unique IDs, 82 empty values and 241 groups sharing an identical decoded value. These are main-table counts, not proof of all player-visible text.
 
-Six metrics resources of type `font` use the `idf+` signature: arial_black, courier, cyrillic/idakagi_semibold, futura_com_book, futura_com_medium, japanese/futura_com_medium_jpn90. Associated material and bimage atlas records were extracted locally. No glyph/atlas modification has been performed.
+Six metrics resources of type `font` use the `idf+` signature: arial_black, courier, cyrillic/idakagi_semibold, futura_com_book, futura_com_medium, japanese/futura_com_medium_jpn90. Associated material and bimage atlas records were extracted locally. Four English font/atlas pairs were subsequently extended for the experimental pilot; see FONT_SYSTEM.md and reports/menu_pilot_build.json.
 
 Compressed candidates use raw DEFLATE and end with the sync-flush marker `0000ffff`, rather than a final block. The decoder validates exact output size and adds an in-memory empty final block only at that observed boundary, then checks stream completion and rejects unused/unconsumed data. This is data decoding evidence, not proof of a valid game-side compressor.
 

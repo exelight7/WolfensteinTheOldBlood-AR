@@ -11,10 +11,12 @@
     "unrelated_records_unchanged": true,
     "selected_sources_have_no_format_placeholders_or_newlines": true,
     "arabic_contains_no_bidi_override_or_isolate_controls": true,
-    "local_bilingual_reference_regenerated": true
+    "local_bilingual_reference_regenerated": true,
+    "installed_hashes_match_build": true,
+    "real_uninstall_restores_original_hashes": true
   },
   "limitations": [
-    "No runtime build or archive replacement",
+    "Experimental runtime build installed; actual game rendering unverified",
     "Font generation, shaping and RTL are unverified",
     "Menu visibility and layout require actual game testing",
     "Checks cover this pilot, not a general game placeholder grammar"
