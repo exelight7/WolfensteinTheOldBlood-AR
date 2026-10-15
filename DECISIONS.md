@@ -21,3 +21,7 @@ Use `strings/english.lang:<native #str_ key>` as the stable resource-qualified I
 ## 2026-10-15 — Accept documented sync-flush payloads
 
 The initial strict DEFLATE-final-block assumption failed against local fonts. Require the observed sync-flush suffix, add an empty final block in memory, and retain exact-size and leftover-data rejection. Synthetic terminated/sync-flushed/truncated cases pass; all 35 selected game resources decode. No conclusion about rebuilding or runtime compatibility follows from extraction.
+
+## 2026-10-15 — User-requested main-menu translation pilot
+
+Translate 33 main-menu and adjacent help/navigation entries as a small source-data pilot, while keeping mass translation gated. Use normal Unicode Arabic, source-qualified native IDs and existing English hashes. The selected strings contain no formatting placeholders or newlines. Preserve all English and unrelated records; backup local master before merge. Status is translated, never reviewed or in_game_verified. No archive installation is implied by this translation checkpoint.

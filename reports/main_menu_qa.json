@@ -1,0 +1,22 @@
+{
+  "pilot": "main_menu",
+  "total_source_entries": 3572,
+  "translated_entries": 33,
+  "reviewed_entries": 0,
+  "in_game_verified_entries": 0,
+  "checks": {
+    "all_pilot_source_keys_found": true,
+    "english_hashes_match": true,
+    "english_values_and_literals_preserved": true,
+    "unrelated_records_unchanged": true,
+    "selected_sources_have_no_format_placeholders_or_newlines": true,
+    "arabic_contains_no_bidi_override_or_isolate_controls": true,
+    "local_bilingual_reference_regenerated": true
+  },
+  "limitations": [
+    "No runtime build or archive replacement",
+    "Font generation, shaping and RTL are unverified",
+    "Menu visibility and layout require actual game testing",
+    "Checks cover this pilot, not a general game placeholder grammar"
+  ]
+}

@@ -1,0 +1,299 @@
+[
+  {
+    "id": "strings/english.lang:#str_menu_main_title",
+    "resource": "strings/english.lang",
+    "index": 1098,
+    "english_sha256": "cb2a495822a6dd4c079ca88308e0164c183e8929dddb47373a52a03cd2ba0094",
+    "arabic": "القائمة الرئيسية",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_new",
+    "resource": "strings/english.lang",
+    "index": 1074,
+    "english_sha256": "a253ff09c5a8678e1fd1962b2c329245e139e45f9cc6ced4e5d7ad42c4108fc0",
+    "arabic": "لعبة جديدة",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_new_help",
+    "resource": "strings/english.lang",
+    "index": 1075,
+    "english_sha256": "7c758c7874f249339d187fbd47c436f126267249d752a3b72c9a47e930afd4f5",
+    "arabic": "ابدأ لعبة جديدة.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_continue",
+    "resource": "strings/english.lang",
+    "index": 893,
+    "english_sha256": "628db0c7598820b101769164f5228a5096e4f531ee71ee7e5e31d734dd38fe64",
+    "arabic": "متابعة",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_resume",
+    "resource": "strings/english.lang",
+    "index": 1142,
+    "english_sha256": "0747c96a23dbfa586507337fc4ed4bdddb7b05833243622c4e6bb357b87adb0c",
+    "arabic": "متابعة اللعب",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_resume_help",
+    "resource": "strings/english.lang",
+    "index": 1143,
+    "english_sha256": "8766a737be80740ecec974a15ad279251e3c41483df5118cd334328b1593b6e7",
+    "arabic": "تابع القصة من حيث توقفت.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_load",
+    "resource": "strings/english.lang",
+    "index": 1073,
+    "english_sha256": "d438686e54df812d53df373e2ca6a962d0c9197dc869310499748cbe7af5de26",
+    "arabic": "تحميل لعبة",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_chapters",
+    "resource": "strings/english.lang",
+    "index": 1057,
+    "english_sha256": "498bff2b2aec80a3735f95048e6677176bd93bcc82f931c2af9bb879e7d8474d",
+    "arabic": "الفصول",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_chapters_help",
+    "resource": "strings/english.lang",
+    "index": 1058,
+    "english_sha256": "959e70cebacc786504bca3dabebb768398d5e2752d6e7b438f1ea0f1e03a1b19",
+    "arabic": "أعد لعب الفصول التي فتحتها.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_new_challenge",
+    "resource": "strings/english.lang",
+    "index": 1105,
+    "english_sha256": "6532ac8d28dae9ebbae159e66e964062feddd65ead91f90e5530dc7d5052603a",
+    "arabic": "التحديات",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_new_challenge_help",
+    "resource": "strings/english.lang",
+    "index": 1106,
+    "english_sha256": "68dbcfda8ce69a762d1b4ebefb64512bc61470b6d1c4e6af6e0c256c42cc1dfc",
+    "arabic": "أكمل المقاطع القتالية في اللعبة لفتح التحديات.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_options",
+    "resource": "strings/english.lang",
+    "index": 1112,
+    "english_sha256": "d0b1a869600d21076a3fa8b5f52546e55920588ce73dfb7e56ca9dc08bdcaf3e",
+    "arabic": "الإعدادات",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_options_help",
+    "resource": "strings/english.lang",
+    "index": 1121,
+    "english_sha256": "b3dec12d622a43d13d6047a0ba89b0519eceaa5da430efea0379c40c76d507db",
+    "arabic": "غيّر إعدادات اللعب والصوت والصورة.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_options_help_short",
+    "resource": "strings/english.lang",
+    "index": 1122,
+    "english_sha256": "a6e0e9edfc53374943625612b8fdb03fb9565cb6b29b2ea5b0f840de96455108",
+    "arabic": "غيّر الإعدادات.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_extras",
+    "resource": "strings/english.lang",
+    "index": 1071,
+    "english_sha256": "1979f5612cec8913f105bb1e58375374cbe6d40892da7e5a00f46162b98870ba",
+    "arabic": "إضافات",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_extras_help",
+    "resource": "strings/english.lang",
+    "index": 1072,
+    "english_sha256": "ae05f4e27a7bed5a0b4e331d09d6836270b2d15ff02b7f6a18bf112bfae7c5fc",
+    "arabic": "تصفح جميع المحتويات الإضافية التي فتحتها.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_collectibles",
+    "resource": "strings/english.lang",
+    "index": 1059,
+    "english_sha256": "387c6b1f130e5cfe31bfb734e3c752522f760c2eec55469b150ea1689af5fdd7",
+    "arabic": "المقتنيات",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_collectibles_help",
+    "resource": "strings/english.lang",
+    "index": 1061,
+    "english_sha256": "de2eb7733e4e8719e674c7e96fe0e33d9a34ac125b1385404fba198cf001a924",
+    "arabic": "تصفح الذهب والرسائل والرسومات الفنية ونماذج الشخصيات التي فتحتها.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_credits",
+    "resource": "strings/english.lang",
+    "index": 1062,
+    "english_sha256": "4325a27b45a8f14e8131fcf8d6dc321d483de0b3e3cd4e1fed2e90846e934f7c",
+    "arabic": "فريق العمل",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_credits_help",
+    "resource": "strings/english.lang",
+    "index": 1063,
+    "english_sha256": "e316c8c941cb09ef9bf685e4c7ae85e907941d6456d3b896fa7da9b0a7a17da6",
+    "arabic": "شاهد أسماء فريق العمل.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_stats",
+    "resource": "strings/english.lang",
+    "index": 1078,
+    "english_sha256": "3397886a301e6d85eba6bb6635ffdf8e558f80b0b69f81d95d5b2ed5d032d5fd",
+    "arabic": "الإحصائيات",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_stats_help",
+    "resource": "strings/english.lang",
+    "index": 1083,
+    "english_sha256": "60f030f92698b6e7bb0111605d8f1d51b281a7b66c0d66fa7c94d3ac806094cd",
+    "arabic": "اعرض إحصائيات اللعب.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_saveslots",
+    "resource": "strings/english.lang",
+    "index": 1076,
+    "english_sha256": "4fdc8a4cc7e13f562ebcb81a9de645939b21e8bb86121de414da19f75b00be32",
+    "arabic": "خانات الحفظ",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_saveslots_help",
+    "resource": "strings/english.lang",
+    "index": 1077,
+    "english_sha256": "13f738a98ab25784f104bc660277834c3a142d7098c4b37b41a16b292dab6ca0",
+    "arabic": "عد إلى اختيار خانة الحفظ.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_store_pc",
+    "resource": "strings/english.lang",
+    "index": 1095,
+    "english_sha256": "59f795c13b943b3fa4f498c1aaf8e70f2a638405f0ae2dea46279e983cf2a9ae",
+    "arabic": "المتجر",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_main_store_help",
+    "resource": "strings/english.lang",
+    "index": 1092,
+    "english_sha256": "b3939fb50aa1cd776fcaf35b3a0adc469508a822c713b69884b43e3c3116447b",
+    "arabic": "انتقل إلى صفحة متجر ولفنشتاين.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_exit_to_desktop",
+    "resource": "strings/english.lang",
+    "index": 958,
+    "english_sha256": "d309cb4f9acd755a7a7ff9e6e916edc44ea1aea5b869bcf0c8436f7dad3f7ec9",
+    "arabic": "الخروج إلى سطح المكتب",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_root_exit_label",
+    "resource": "strings/english.lang",
+    "index": 1148,
+    "english_sha256": "d309cb4f9acd755a7a7ff9e6e916edc44ea1aea5b869bcf0c8436f7dad3f7ec9",
+    "arabic": "الخروج إلى سطح المكتب",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_root_exittodesktop_help",
+    "resource": "strings/english.lang",
+    "index": 1149,
+    "english_sha256": "484e000d33c591bc3282fcb72233e04b5f588915e0c33bc20e33a5913126b1de",
+    "arabic": "أغلق اللعبة وعد إلى سطح المكتب.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_back",
+    "resource": "strings/english.lang",
+    "index": 828,
+    "english_sha256": "639807a2e01886a2236b9fe1fe9bdbdea267b9c84c4acb3ab0858a6a13531b9a",
+    "arabic": "رجوع",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_back_help",
+    "resource": "strings/english.lang",
+    "index": 829,
+    "english_sha256": "2da52bac66dd5fc287664a305f60b92843a59d276bb390c12580047023ec855f",
+    "arabic": "عد إلى القائمة السابقة.",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_yes",
+    "resource": "strings/english.lang",
+    "index": 1265,
+    "english_sha256": "f9171164593756e56fb197327b529a4955590566560dbe62d586bff41be9d297",
+    "arabic": "نعم",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  },
+  {
+    "id": "strings/english.lang:#str_menu_no",
+    "resource": "strings/english.lang",
+    "index": 1108,
+    "english_sha256": "23794d91c53ae875c8e247d72561e35d9d06ee07c70c9e0dbcc977a6d161504a",
+    "arabic": "لا",
+    "status": "translated",
+    "context": "PC main menu and adjacent help/navigation; runtime visibility unverified"
+  }
+]

@@ -2,7 +2,7 @@
 
 Unofficial Arabic fan localization for the Windows Steam release. This is a research-stage project, **not an installable Arabic patch**.
 
-Translation progress: 0/3,572 main English table entries translated. Other text sources are still under investigation. No Arabic text, font, shaping, or RTL behavior has been verified in-game.
+Translation progress: 33/3,572 main English table entries translated (0.92%), covering a small main-menu pilot. Other text sources are still under investigation. No Arabic text, font, shaping, or RTL behavior has been verified in-game.
 
 The intended typeface is IBM Plex Sans Arabic. Human translations will remain normal Unicode Arabic; any shaping or game-specific encoding will be generated during builds.
 
