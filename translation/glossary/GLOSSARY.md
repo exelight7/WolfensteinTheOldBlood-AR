@@ -31,7 +31,7 @@ Human source uses normal Unicode Arabic. Preserve technical markers, timing bloc
 | Blazko | بلازكو |
 | Obermann | أوبرمان |
 | Operation Wolfstone | عملية وولفستون |
-| OSA | مكتب الأعمال السرية |
+| OSA | مكتب العمليات السرية |
 | Keep (castle section) | الحصن |
 | ÜBER | أوبر |
 | Übergold | الذهب الفائق |

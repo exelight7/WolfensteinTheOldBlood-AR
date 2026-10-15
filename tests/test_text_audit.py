@@ -5,7 +5,7 @@ import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from audit_text_sources import analyze
-from collect_text_corpus import binary_strings, record, native_candidates
+from collect_text_corpus import binary_strings, record, native_candidates, preserve_external_translations
 
 
 class TextAuditTests(unittest.TestCase):
@@ -29,6 +29,15 @@ class TextAuditTests(unittest.TestCase):
             self.assertTrue(any(r["english"] == "Synthetic warning" for r in rows))
             self.assertTrue(any(r["english"] == "Another warning" for r in rows))
             self.assertTrue(all(r["status"] == "needs_classification" for r in rows))
+
+    def test_external_translation_survives_corpus_regeneration(self):
+        fresh = record("warning.json", "english_body", "Synthetic warning", "confirmed")
+        previous = dict(fresh, arabic="تحذير تجريبي", status="translated")
+        result = preserve_external_translations([dict(fresh)], [previous], set())
+        self.assertEqual(result[0]["arabic"], "تحذير تجريبي")
+        changed = record("warning.json", "english_body", "Changed warning", "confirmed")
+        with self.assertRaises(ValueError):
+            preserve_external_translations([changed], [previous], set())
 
     def test_external_record_has_stable_key_and_hash(self):
         a = record("warning.json", "english_body", "Synthetic %s", "confirmed")

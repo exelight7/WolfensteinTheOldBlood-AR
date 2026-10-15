@@ -95,6 +95,20 @@ def collect(master, game, audit):
     return confirmed, candidates, unresolved, anomalies
 
 
+def preserve_external_translations(confirmed, previous, primary_ids):
+    previous_by_id = {row["id"]: row for row in previous}
+    for row in confirmed:
+        if row["id"] in primary_ids or row["id"] not in previous_by_id:
+            continue
+        old = previous_by_id[row["id"]]
+        if old["english_sha256"] != row["english_sha256"] or old["english"] != row["english"]:
+            raise ValueError("External English source changed; explicit migration required")
+        for key in ("arabic", "status", "notes", "context"):
+            if key in old:
+                row[key] = old[key]
+    return confirmed
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--game", type=Path, required=True)
@@ -105,6 +119,10 @@ def main():
     native = native_candidates(args.game)
     output = Path("workspace/all_text")
     output.mkdir(parents=True, exist_ok=True)
+    existing = output / "ALL_CONFIRMED_TEXT.local.jsonl"
+    if existing.exists():
+        previous = [json.loads(line) for line in existing.read_text(encoding="utf-8").splitlines() if line]
+        confirmed = preserve_external_translations(confirmed, previous, {row["id"] for row in master})
     for filename, rows in (("ALL_CONFIRMED_TEXT", confirmed), ("LITERAL_CANDIDATES", candidates), ("UNRESOLVED_IDS", unresolved), ("NATIVE_CANDIDATES", native)):
         (output / f"{filename}.local.jsonl").write_text("".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows), encoding="utf-8", newline="\n")
     lines = ["# All confirmed electronic text (local)", "", "Includes the complete English localization table and loose graphics-driver warnings. Additional literal candidates and unresolved references are separate; this is not a claim of all visual or audio text.", ""]
@@ -126,7 +144,7 @@ def main():
                    literal_candidates=len(candidates), native_binary_candidates=len(native),
                    distinct_phrase_candidates=len(phrases), unresolved_source_ids=len(unresolved),
                    source_key_anomalies=anomalies, archive_payload_audit_percent=100,
-                   full_game_text_extraction_percent=None, translation_gate="HOLD",
+                   full_game_text_extraction_percent=None, translation_gate="SEE_PROJECT_STATE",
                    pending=["Classify embedded UI/declaration literals and distinguish runtime text from authoring/debug strings.",
                             "Resolve or document absent localization IDs without fabricating their text.",
                             "Review image, virtualtexture, video and native-executable text scope; raw scans cannot certify these."])
