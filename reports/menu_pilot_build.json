@@ -14,8 +14,8 @@
     "chunk0.index": "3aa93b17e2d2167e686758428bdcc84c1895b61f1512a01814f0e62314cba750"
   },
   "output_hashes": {
-    "chunk0.index": "fba085198863672fdc7ce8fa04b41be5985c839afc0b46496440b4e1114a26cf",
-    "chunk0.resources": "15d58cdf7a2353d5e48c25aee94824ffca51423a1013932698d29013899f24fd"
+    "chunk0.index": "15c551baaa051a95a994f114a2ed1ee2061983e37edeac6ae4ebf18ec8ad4464",
+    "chunk0.resources": "5a61ac1d59fd10d4339bca4398324c08b09a149c75d5c6c82a1aa96a19801bc9"
   },
   "font_sha256": "8e0f1046c736bf939d4939ee3ae0116acf61cbcd6592deae7656761627080981",
   "mapping": {
@@ -105,8 +105,9 @@
     "strings/english.lang"
   ],
   "strategy": "pre-shaped visual Arabic mapped to appended PUA glyphs; runtime behavior unverified",
-  "install_hashes_verified": true,
-  "original_restore_hashes_verified": true,
-  "reinstalled": true,
-  "synthetic_tests_passed": 11
+  "archive_layout": "ordered_v1",
+  "startup_loading_verified": true,
+  "main_menu_screenshot_verified": true,
+  "synthetic_tests_passed": 15,
+  "previous_append_build_failed": true
 }

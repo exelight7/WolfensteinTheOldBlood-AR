@@ -34,6 +34,12 @@ https://github.com/Nazar-Okruzhko/ID-Tech-5 describes mixed-endian index records
 
 https://www.nexusmods.com/wolfensteintheoldblood/mods/10?tab=description reports 3572 table entries, PUA Thai font handling and replacement of chunk0.resources/chunk0.index. These are author claims, not our measured corpus or evidence of Arabic support. No mod assets were downloaded.
 
-## Unknowns
+## Unknowns at initial discovery (see subsequent experiment updates)
 
 Complete player-visible corpus beyond the main table, font field semantics and atlas encoding, engine shaping, RTL and wrapping, dependency/index integrity, supported rebuild and distribution method. No successful in-game experiment exists.
+
+## Experiment FILETABLE-001 — append-only build rejected; ordered rebuild loads
+
+The first installed pilot caused a startup fatal error: `idBackgroundLoader::BeginBackgroundLoads: FileTable is out of order`. Both crash logs and qconsole were preserved under ignored workspace/experiments/FILETABLE-001. The failing pair is preserved in workspace/menu_pilot. Its moved payload offsets were not monotonic in table order, whereas all original offsets were ordered and non-overlapping.
+
+After restoring original hashes, the builder was corrected to replace payloads in table order and shift later offsets, preserving unrelated stored data. A middle-resource-growth regression test now enforces ordered offsets. The rebuilt pair is under workspace/menu_pilot_ordered. The game was launched via Steam; qconsole passed common EndBackgroundLoads (24.7 seconds), the process remained alive, and the owner supplied an Arabic main-menu screenshot. This verifies startup/menu loading for this experiment, not full-game compatibility or every translated string.

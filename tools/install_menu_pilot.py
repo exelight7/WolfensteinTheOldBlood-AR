@@ -65,6 +65,8 @@ def install(game, build, backup, uninstall=False):
     if not (game / "WolfOldBlood_x64.exe").is_file():
         raise ValueError("Game executable not found")
     manifest = json.loads((build / "BUILD_INFO.local.json").read_text(encoding="utf-8"))
+    if not uninstall and manifest.get("archive_layout") != "ordered_v1":
+        raise ValueError("Obsolete archive layout; rebuild with ordered_v1 before installing")
     if manifest["source_hashes"] != ORIGINAL or set(manifest["output_hashes"]) != set(FILES):
         raise ValueError("Unexpected build manifest")
     outputs = manifest["output_hashes"]
@@ -111,7 +113,7 @@ def install(game, build, backup, uninstall=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--game", type=Path, required=True)
-    parser.add_argument("--build", type=Path, default=Path("workspace/menu_pilot"))
+    parser.add_argument("--build", type=Path, default=Path("workspace/menu_pilot_ordered"))
     parser.add_argument("--backup", type=Path, default=Path("workspace/backups/menu_pilot_original"))
     parser.add_argument("--uninstall", action="store_true")
     args = parser.parse_args()

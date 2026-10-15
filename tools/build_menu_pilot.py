@@ -28,34 +28,48 @@ def sha(data):
 
 
 def rebuild(index, archive, changes):
+    import io
     entries, info = records(index, len(archive))
     if info["trailing_bytes"] or not set(changes) <= {r["ordinal"] for r in entries}:
         raise ValueError("Unexpected index or unknown replacement")
-    result_index, result_archive = bytearray(index), bytearray(archive)
-    changed_fields = set()
+    cursor = 0
     for entry in entries:
-        replacement = changes.get(entry["ordinal"])
-        if replacement is None:
-            continue
-        # No-op replacements preserve the complete original pair byte-for-byte.
-        import io
-        if payload(io.BytesIO(archive), entry) == replacement:
-            continue
-        result_archive += bytes((-len(result_archive)) % 16)
+        if entry["offset"] < cursor:
+            raise ValueError("Archive table is unordered or overlapping")
+        cursor = entry["offset"] + entry["stored"]
+    result_index, result_archive = bytearray(index), bytearray()
+    changed_fields = set()
+    cursor = 0
+    for entry in entries:
+        # Preserve resource order: the background loader requires increasing offsets.
+        result_archive += archive[cursor:entry["offset"]]
+        if len(result_archive) != entry["offset"]:
+            result_archive += bytes((-len(result_archive)) % 16)
         offset = len(result_archive)
-        result_archive += replacement
+        original = archive[entry["offset"]:entry["offset"] + entry["stored"]]
+        replacement = changes.get(entry["ordinal"])
+        if replacement is not None and payload(io.BytesIO(archive), entry) != replacement:
+            stored, size = len(replacement), len(replacement)
+            result_archive += replacement
+        else:
+            stored, size = entry["stored"], entry["size"]
+            result_archive += original
+        cursor = entry["offset"] + entry["stored"]
         pos = entry["metadata_offset"]
-        struct.pack_into(">III", result_index, pos, offset, len(replacement), len(replacement))
+        struct.pack_into(">III", result_index, pos, offset, size, stored)
         changed_fields.update(range(pos, pos + 12))
-    assert result_archive[:len(archive)] == archive
+    result_archive += archive[cursor:]
     assert all(a == b or i in changed_fields for i, (a, b) in enumerate(zip(index, result_index)))
     updated, _ = records(result_index, len(result_archive))
-    import io
+    previous_end = 0
     for old, new in zip(entries, updated):
+        assert new["offset"] >= previous_end
+        previous_end = new["offset"] + new["stored"]
         if old["ordinal"] in changes:
             assert payload(io.BytesIO(result_archive), new) == changes[old["ordinal"]]
         else:
-            assert old == new
+            assert {k: v for k, v in old.items() if k != "offset"} == {k: v for k, v in new.items() if k != "offset"}
+            assert archive[old["offset"]:old["offset"] + old["stored"]] == result_archive[new["offset"]:new["offset"] + new["stored"]]
     return bytes(result_index), bytes(result_archive)
 
 
@@ -99,7 +113,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--game", type=Path, required=True)
     parser.add_argument("--font", type=Path, required=True)
-    parser.add_argument("--output", type=Path, default=Path("workspace/menu_pilot"))
+    parser.add_argument("--output", type=Path, default=Path("workspace/menu_pilot_ordered"))
     args = parser.parse_args()
     game = args.game.resolve(strict=True)
     out = args.output.resolve()
@@ -145,7 +159,7 @@ def main():
     for name, data in outputs.items():
         (out / name).write_bytes(data)
     (out / "english_runtime.local.lang").write_bytes(changes[lang_entry["ordinal"]])
-    manifest = dict(experimental=True, in_game_verified=False, translation_count=len(translations),
+    manifest = dict(experimental=True, in_game_verified=False, archive_layout="ordered_v1", translation_count=len(translations),
                     new_glyph_count=len(mapping), fonts=fonts_changed, source_hashes=SOURCE_HASHES,
                     output_hashes={n: sha(b) for n, b in outputs.items()},
                     font_sha256=IBM_FONT_HASH, mapping={f"U+{ord(c):04X}": f"U+{v:04X}" for c, v in mapping.items()},

@@ -26,6 +26,8 @@ python tools/build_menu_pilot.py --game "<your Steam game directory>" --font wor
 
 The builder requires original chunk0 hashes and refuses already-modified game files. If rebuilding after installation, restore originals first. It generates workspace/menu_pilot, with local archives, runtime language data and a manifest. All proprietary and generated archive data stays ignored.
 
-The pilot pre-shapes Arabic, applies BiDi and maps 73 required shapes/punctuation glyphs to appended PUA entries. It expands four original font atlases using IBM Arabic SDF glyphs; original glyphs, codepoint indices, kerning tables and atlas pixel regions remain unchanged. It replaces nine resource records (four font/atlas pairs plus the English table), appends payloads with 16-byte alignment, and changes only the corresponding index offset/size fields.
+The pilot pre-shapes Arabic, applies BiDi and maps 73 required shapes/punctuation glyphs to appended PUA entries. It expands four original font atlases using IBM Arabic SDF glyphs; original glyphs, codepoint indices, kerning tables and atlas pixel regions remain unchanged. It replaces nine resource payloads in their original table order, preserving all untouched stored bytes and shifting later offsets as needed with 16-byte alignment. Appending changed resources to the end was rejected by the runtime loader and must not be used.
+
+Current output directory is workspace/menu_pilot_ordered. The previous workspace/menu_pilot build is retained solely as failed-experiment evidence. The installer refuses to install manifests without archive_layout=ordered_v1. See DISCOVERY_REPORT.md for the crash and fix.
 
 The builder checks byte-identical no-op output, deterministic output from originals and idempotent output when applied to its already-patched pair. These are structural checks, not an in-game result. Runtime font/RTL behavior remains experimental. See INSTALL_GUIDE.md for local install and restoration.

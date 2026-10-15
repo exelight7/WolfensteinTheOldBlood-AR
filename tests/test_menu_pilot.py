@@ -23,12 +23,29 @@ class PilotTests(unittest.TestCase):
         self.assertEqual(rebuild(index, archive, {}), (index, archive))
         self.assertEqual(rebuild(index, archive, {0: b"abc"}), (index, archive))
         new_index, new_archive = rebuild(index, archive, {0: b"replacement"})
-        self.assertEqual(new_archive[:3], archive)
         entries, _ = records(new_index, len(new_archive))
         self.assertEqual(payload(io.BytesIO(new_archive), entries[0]), b"replacement")
         self.assertEqual(rebuild(new_index, new_archive, {0: b"replacement"}), (new_index, new_archive))
         with self.assertRaises(ValueError):
             rebuild(index, archive, {999: b"bad"})
+
+    def test_middle_replacement_preserves_streaming_order(self):
+        header = bytes(0x24) + struct.pack(">II", 3, 0)
+        records_data = []
+        for i, offset in enumerate((16, 32, 48)):
+            names = b"".join(struct.pack("<I", len(n)) + n for n in (b"file", b"item", str(i).encode()))
+            records_data.append(names + struct.pack(">IIII", offset, 3, 3, 0) + bytes(5))
+        index = header + bytes(4).join(records_data)
+        archive = bytes(16) + b"one" + bytes(13) + b"two" + bytes(13) + b"end"
+        replacement = b"middle resource grew substantially"
+        new_index, new_archive = rebuild(index, archive, {1: replacement})
+        entries, _ = records(new_index, len(new_archive))
+        self.assertEqual([e["offset"] for e in entries], sorted(e["offset"] for e in entries))
+        self.assertEqual(payload(io.BytesIO(new_archive), entries[0]), b"one")
+        self.assertEqual(payload(io.BytesIO(new_archive), entries[1]), replacement)
+        self.assertEqual(payload(io.BytesIO(new_archive), entries[2]), b"end")
+        self.assertEqual(rebuild(index, archive, {}), (index, archive))
+        self.assertEqual(rebuild(new_index, new_archive, {1: replacement}), (new_index, new_archive))
 
     def test_table_replacement_and_source_hash_gate(self):
         source = b'\xef\xbb\xbf{\r\n "#str_a" "Synthetic menu"\r\n "#str_b" "Keep me"\r\n}\r\n'
