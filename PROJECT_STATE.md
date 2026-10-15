@@ -2,10 +2,10 @@
 
 Date: 2026-10-15
 
-- Phase: complete text-source audit requested before any further translation. Translation gate: HOLD.
+- Phase: translation explicitly authorized in stages 25%, 50%, 75%, 100% on the fixed confirmed corpus of 3574 records. Phase25 merged; phase50 in progress.
 - Build: workspace/menu_pilot_ordered, 33 translated records, 73 generated Arabic forms mapped to PUA, four font/atlas pairs changed. Ordered build installed on 2026-10-15. Previous append-only build crashed and is superseded.
-- Translation percentage: 0.92% of the main English table; complete game scope still UNVERIFIED.
-- Main English table: 3572 unique IDs, 82 empty values, 241 duplicate-value groups; translated/reviewed/in-game verified: 33/0/0.
+- Translation progress on confirmed 3574-record corpus: 894 processed (25.01%), comprising 799 translated (22.36%) and 95 do_not_translate (mostly technical key labels and empty/glyph metadata). No translation is marked reviewed or in_game_verified.
+- Main English table remains 3572 unique IDs, 82 empty values, 241 duplicate-value groups. Full visible-game-text scope remains UNVERIFIED; percentages refer to the fixed confirmed corpus only.
 - Pilot: main-menu labels and adjacent help/navigation translated in translation/arabic/main_menu.json and merged into the ignored local bilingual master/reference. User requested this small pilot; mass translation remains gated.
 - Extraction: all 8 chunk indexes parsed to EOF (90863 records); 35 localization/font-name candidates extracted, no errors. Name filtering is not proof of complete text discovery.
 - Font / RTL / shaping: the user's screenshot shows Arabic main-menu labels and help with joined letters in the installed ordered build. Broader glyph/RTL/mixed-text/subtitle tests remain pending; individual records have not been promoted to in_game_verified yet.
@@ -28,8 +28,8 @@ Date: 2026-10-15
 - Raw supplementary candidates: 646186 quoted/UI occurrences and 190514 native-binary printable runs. These are mostly technical strings, not a claimed translation count. 204 distinct phrase candidates prepared for review.
 - References: 25 missing English IDs (3 faction, 16 secrets, 6 UI), plus one preserved native key with a trailing space. No missing English fabricated.
 - Current extraction percentage: archive payload scanning 100%; main English table extraction 100%; total player-visible text percentage UNKNOWN. See docs/TEXT_COVERAGE.md for explicit remaining gates.
-- Tests: full suite now 19 passing synthetic tests. No new translation or game-file modifications during this audit.
+- Tests: 22 passing synthetic tests including batch source preservation, timing/placeholder checks and exclusion handling. Current translation phase changes source data only; no new runtime installation.
 
 ## NEXT ACTION
 
-Keep translation on HOLD. Parse/review BSWF v20 text/action fields and the 204 phrase candidates, resolve the 25 missing-source IDs based on actual use, and plan visual/native-message coverage using docs/TEXT_COVERAGE.md. Do not equate 100% payload scanning with 100% visible-text extraction; image/video/virtualtexture text and runtime-only messages remain unverified.
+Complete phase50 translations in workspace/translation_batches/phase50/part1–part3, validate and merge with tools/apply_translation_batch.py, then continue phase75 and phase100. Public phase25 data and QA report are saved. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/TEXT_COVERAGE.md.

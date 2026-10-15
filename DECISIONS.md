@@ -43,3 +43,7 @@ User requested all dialogue, without translation. Export source-name-classified 
 ## 2026-10-15 — Gate translation on honest source completeness
 
 Owner requires extraction completeness before translation. Audit all 90863 chunk payloads rather than only localization-name matches; decoding and payload scanning achieved 100% with zero failures. Keep separate metrics for known table extraction, resource coverage, confirmed text and unclassified literals. Preserve original master/IDs; generate an extended local corpus for the two loose warning strings. Retain unknown keys as English=null and keep whitespace-bearing native keys intact. Do not claim a global percentage while BSWF field coverage, missing references, image/video text and runtime messages remain unverified. Translation remains HOLD.
+
+## 2026-10-15 — Owner authorizes staged translation
+
+Owner clarified that 25/50/75/100 means percentage stages, authorizing translation despite remaining extraction uncertainty. Fix the progress denominator at 3574 confirmed records. Report processed and actually translated counts separately; document excluded empty/technical entries as do_not_translate with blank Arabic and explicit reasons. Preserve existing 33 menu translations, merge new source data only after automated immutable-source, token, timing and newline checks. Source Arabic stays logical Unicode. Current runtime pilot is unchanged. The main local bilingual reference is regenerated at each stage; complete English remains local.

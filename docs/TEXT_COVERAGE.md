@@ -1,6 +1,6 @@
 # Text extraction coverage — 2026-10-15
 
-Translation gate: **HOLD**, as requested by the owner. Archive payload coverage is 100%; total game-visible text completion is **UNVERIFIED**, with no invented overall percentage.
+The owner subsequently authorized translation in 25/50/75/100 stages on the fixed confirmed corpus (3574 records). The earlier HOLD is superseded. Archive payload coverage is 100%; total game-visible text completion remains **UNVERIFIED**, with no invented overall percentage. Translation progress does not erase these extraction limits.
 
 ## Measured coverage
 
