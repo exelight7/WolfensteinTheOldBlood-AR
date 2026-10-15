@@ -1,0 +1,17 @@
+{
+  "phase": 75,
+  "corpus_entries": 3574,
+  "batch_entries": 894,
+  "statuses": {
+    "translated": 2499,
+    "do_not_translate": 182,
+    "untranslated": 893
+  },
+  "processed_entries": 2681,
+  "completion_percent": 75.01,
+  "translated_percent": 69.92,
+  "source_preserved": true,
+  "placeholder_validation_passed": true,
+  "installed": false,
+  "reviewed": false
+}

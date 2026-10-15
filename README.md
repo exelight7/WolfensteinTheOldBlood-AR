@@ -2,7 +2,7 @@
 
 Unofficial Arabic fan localization for the Windows Steam release. An **experimental main-menu pilot** can be built locally for the exact inventoried Steam version. This is not a complete localization or a verified public release.
 
-Translation stage50: 1787/3574 confirmed records processed (50%): 1690 translated and 97 excluded as technical/empty metadata. The owner supplied an actual screenshot showing the small Arabic main-menu pilot; new translation batches are source data and have not been installed. Subtitle rendering, broader mixed RTL cases and full-game compatibility remain unverified.
+Translation stage75: 2681/3574 confirmed records processed (75.01%): 2499 translated and 182 excluded as technical/empty metadata/placeholders. The owner supplied an actual screenshot showing the small Arabic main-menu pilot; new translation batches are source data and have not been installed. Subtitle rendering, broader mixed RTL cases and full-game compatibility remain unverified.
 
 The intended typeface is IBM Plex Sans Arabic. Human translations will remain normal Unicode Arabic; any shaping or game-specific encoding will be generated during builds.
 

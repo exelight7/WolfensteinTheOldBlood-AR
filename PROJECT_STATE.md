@@ -2,9 +2,9 @@
 
 Date: 2026-10-15
 
-- Phase: translation explicitly authorized in stages 25%, 50%, 75%, 100% on the fixed confirmed corpus of 3574 records. Phase50 merged; phase75 ready for final validation; phase100 underway.
+- Phase: translation explicitly authorized in stages 25%, 50%, 75%, 100% on the fixed confirmed corpus of 3574 records. Phase75 merged; final phase100 underway.
 - Build: workspace/menu_pilot_ordered, 33 translated records, 73 generated Arabic forms mapped to PUA, four font/atlas pairs changed. Ordered build installed on 2026-10-15. Previous append-only build crashed and is superseded.
-- Translation progress on confirmed 3574-record corpus: 1787 processed (50%), comprising 1690 translated (47.29%) and 97 do_not_translate (technical labels, empty/glyph metadata). No translation is marked reviewed or in_game_verified.
+- Translation progress on confirmed 3574-record corpus: 2681 processed (75.01%), comprising 2499 translated (69.92%) and 182 do_not_translate (technical labels, empty/glyph metadata/placeholders). No translation is marked reviewed or in_game_verified.
 - Main English table remains 3572 unique IDs, 82 empty values, 241 duplicate-value groups. Full visible-game-text scope remains UNVERIFIED; percentages refer to the fixed confirmed corpus only.
 - Pilot: main-menu labels and adjacent help/navigation translated in translation/arabic/main_menu.json and merged into the ignored local bilingual master/reference. User requested this small pilot; mass translation remains gated.
 - Extraction: all 8 chunk indexes parsed to EOF (90863 records); 35 localization/font-name candidates extracted, no errors. Name filtering is not proof of complete text discovery.
@@ -32,4 +32,4 @@ Date: 2026-10-15
 
 ## NEXT ACTION
 
-Validate/merge completed phase75 parts with tools/apply_translation_batch.py, then finish phase100. Public phase25/phase50 data and QA reports are saved. Prose corrections and the OSA glossary term were synchronized with canonical references. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/TEXT_COVERAGE.md.
+Finish/validate/merge phase100 parts with tools/apply_translation_batch.py. Public phase25/phase50/phase75 data and QA reports are saved. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. At completion regenerate dialogue references and verify all source hashes/public ID uniqueness. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/TEXT_COVERAGE.md.
