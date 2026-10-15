@@ -1,0 +1,15 @@
+workspace/
+reference/*.local.*
+reports/*.local.*
+__pycache__/
+*.pyc
+.serena/
+*.resources
+*.index
+*.streamed
+*.exe
+*.dll
+*.bimage
+*.bfont
+*.ttf
+*.otf
