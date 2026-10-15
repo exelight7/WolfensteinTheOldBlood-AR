@@ -1,5 +1,6 @@
 workspace/
 reference/*.local.*
+reference/english_source.local.lang
 reports/*.local.*
 __pycache__/
 *.pyc
