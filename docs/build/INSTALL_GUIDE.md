@@ -5,8 +5,8 @@ An experimental 33-entry menu pilot has been installed locally on the exact sour
 Close the game before installation or restoration. From the repository root, after building with BUILD_GUIDE.md:
 
 ```powershell
-.\INSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
-.\UNINSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
+.\scripts\INSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
+.\scripts\UNINSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
 ```
 
 Equivalent Python commands:

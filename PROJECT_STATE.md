@@ -27,9 +27,9 @@ Date: 2026-10-15
 - Confirmed electronic-text corpus: 3574 records (3572 main English table plus 2 loose driver warnings), under workspace/all_text; primary local master and menu pilot unchanged.
 - Raw supplementary candidates: 646186 quoted/UI occurrences and 190514 native-binary printable runs. These are mostly technical strings, not a claimed translation count. 204 distinct phrase candidates prepared for review.
 - References: 25 missing English IDs (3 faction, 16 secrets, 6 UI), plus one preserved native key with a trailing space. No missing English fabricated.
-- Current extraction percentage: archive payload scanning 100%; main English table extraction 100%; total player-visible text percentage UNKNOWN. See docs/TEXT_COVERAGE.md for explicit remaining gates.
+- Current extraction percentage: archive payload scanning 100%; main English table extraction 100%; total player-visible text percentage UNKNOWN. See docs/discovery/TEXT_COVERAGE.md for explicit remaining gates.
 - Tests: 23 passing synthetic tests including batch source preservation, timing/placeholder checks, exclusion handling and external-warning translation preservation during corpus regeneration. Current translation phase changes source data only; no new runtime installation.
 
 ## NEXT ACTION
 
-Finish/validate/merge phase100 parts with tools/apply_translation_batch.py. Public phase25/phase50/phase75 data and QA reports are saved. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. At completion regenerate dialogue references and verify all source hashes/public ID uniqueness. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/TEXT_COVERAGE.md.
+Finish/validate/merge phase100 parts with tools/apply_translation_batch.py. Public phase25/phase50/phase75 data and QA reports are saved. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. At completion regenerate dialogue references and verify all source hashes/public ID uniqueness. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/discovery/TEXT_COVERAGE.md.

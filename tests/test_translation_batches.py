@@ -22,6 +22,19 @@ class BatchTests(unittest.TestCase):
         source = self.source("100% of all items")
         self.assertEqual(validate(source, dict(source, arabic="100% من جميع العناصر", status="translated")), [])
 
+    def test_percent_escape_and_control_characters_are_preserved(self):
+        source = self.source("Progress %d%%\t\r\n")
+        translated = dict(source, arabic="التقدم %d%%\t\r\n", status="translated")
+        self.assertEqual(validate(source, translated), [])
+        self.assertIn("percent_escape_count_changed", validate(source, dict(translated, arabic="التقدم %d%\t\r\n")))
+        self.assertIn("control_character_count_changed", validate(source, dict(translated, arabic="التقدم %d%%\n")))
+
+    def test_engine_color_code_is_preserved(self):
+        source = self.source("^8Synthetic warning")
+        translated = dict(source, arabic="^8تحذير تجريبي", status="translated")
+        self.assertEqual(validate(source, translated), [])
+        self.assertIn("placeholder_or_tag_mismatch", validate(source, dict(translated, arabic="تحذير تجريبي")))
+
     def test_exclusions_and_source_immutability(self):
         source = self.source("")
         self.assertEqual(validate(source, dict(source, status="do_not_translate", notes="Empty source")), [])

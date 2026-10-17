@@ -1,0 +1,29 @@
+{
+  "scope": "Fixed confirmed electronic-text corpus, not all visible game assets",
+  "total_records": 3574,
+  "statuses": {
+    "translated": 3376,
+    "do_not_translate": 198
+  },
+  "completion_percent": 100,
+  "translated_percent": 94.46,
+  "exclusions": {
+    "font_coverage_metadata": 1,
+    "empty_source": 82,
+    "keyboard_labels": 81,
+    "internal_leaderboard_identifiers": 8,
+    "numeric_identifier": 1,
+    "missingtext_placeholder": 1,
+    "source_placeholder": 23,
+    "timing_only": 1
+  },
+  "source_table_sha256": "6eeb295fffe09106c839c05fcfda8ef97913e3b0bcdee4057314135c4a7c0d1a",
+  "source_ids_values_literals_and_hashes_preserved": true,
+  "all_tokens_timing_and_controls_valid": true,
+  "public_ids_unique_and_english_free": true,
+  "local_masters_agree": true,
+  "full_linguistic_review": false,
+  "new_runtime_install": false,
+  "broad_in_game_qa": false,
+  "remaining_extraction_scope_unverified": true
+}

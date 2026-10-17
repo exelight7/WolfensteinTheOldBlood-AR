@@ -6,14 +6,14 @@ Translation stage75: 2681/3574 confirmed records processed (75.01%): 2499 transl
 
 The intended typeface is IBM Plex Sans Arabic. Human translations will remain normal Unicode Arabic; any shaping or game-specific encoding will be generated during builds.
 
-Start with [PROJECT_STATE.md](PROJECT_STATE.md), [discovery](docs/DISCOVERY_REPORT.md), and [roadmap](ROADMAP.md).
+Start with [PROJECT_STATE.md](PROJECT_STATE.md), [discovery](docs/discovery/DISCOVERY_REPORT.md), and [roadmap](ROADMAP.md). See [PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for the repository layout.
 
-Read-only extraction and local reference commands are in [the build guide](docs/BUILD_GUIDE.md). Run `python -m unittest discover -s tests -v` for synthetic tooling checks.
+Read-only extraction and local reference commands are in [the build guide](docs/build/BUILD_GUIDE.md). Run `python -m unittest discover -s tests -v` for synthetic tooling checks.
 
-The ordered menu pilot has been installed locally with verified hashes; startup and main-menu display have been confirmed. See [installation and restoration](docs/INSTALL_GUIDE.md); keep the generated build and original backup folders for uninstall.
+The ordered menu pilot has been installed locally with verified hashes; startup and main-menu display have been confirmed. See [installation and restoration](docs/build/INSTALL_GUIDE.md); keep the generated build and original backup folders for uninstall.
 
-Dialogue-only export is available locally: 1586 source records, 1548 with text. Dialogue translations are included in the staged source-data work. See [extraction instructions](docs/DIALOGUE_EXTRACTION.md). Full English is excluded from Git.
+Dialogue-only export is available locally: 1586 source records, 1548 with text. Dialogue translations are included in the staged source-data work. See [extraction instructions](docs/discovery/DIALOGUE_EXTRACTION.md). Full English is excluded from Git.
 
-Text audit: 100% of 90863 chunk payloads decoded/scanned; 3574 confirmed electronic-text records extracted. This is **not** a claim of 100% of all visible game text. The owner authorized staged translation of this confirmed corpus; remaining [coverage gates](docs/TEXT_COVERAGE.md) are tracked separately.
+Text audit: 100% of 90863 chunk payloads decoded/scanned; 3574 confirmed electronic-text records extracted. This is **not** a claim of 100% of all visible game text. The owner authorized staged translation of this confirmed corpus; remaining [coverage gates](docs/discovery/TEXT_COVERAGE.md) are tracked separately.
 
 Original game assets and the complete English script remain local and are excluded from Git. A legally installed copy is required. Our code is MIT licensed; proprietary game content is not covered by that license. Arabic translation data licensing will be established before public translation contributions.

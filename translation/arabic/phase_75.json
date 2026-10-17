@@ -4740,7 +4740,7 @@
     "resource": "strings/english.lang",
     "index": 2300,
     "english_sha256": "76af379b1c891e87fe93306f34bdae88c675a47f44b88c8451409890286cf79f",
-    "arabic": "لادروبوتر مركبة هيدروليكية ذات قدمين، مصممة لأعمال البناء ورفع الأحمال الثقيلة.",
+    "arabic": "روبوت التحميل مركبة هيدروليكية ذات قدمين، مصممة لأعمال البناء ورفع الأحمال الثقيلة.",
     "status": "translated",
     "notes": "New glossary proposals: Deathshead ديثسهيد; WESPE فيسبه; Kreisau كرايساو; Hans Grösse هانس غروسه; Laderoboter لادروبوتَر. Need consistency review.",
     "context": "Unknown"
@@ -4750,7 +4750,7 @@
     "resource": "strings/english.lang",
     "index": 2301,
     "english_sha256": "26a3ffabfda572110dfcd906a0182a43dfeb7f02cbaef67adbebe5215e694019",
-    "arabic": "لادروبوتر",
+    "arabic": "روبوت التحميل",
     "status": "translated",
     "notes": "New glossary proposals: Deathshead ديثسهيد; WESPE فيسبه; Kreisau كرايساو; Hans Grösse هانس غروسه; Laderoboter لادروبوتَر. Need consistency review.",
     "context": "Unknown"
@@ -8168,7 +8168,7 @@
     "resource": "strings/english.lang",
     "index": 2680,
     "english_sha256": "4884c7ce24962837fcb497b39728e5ef09d3bf34245edb7a15b38e4f86f7568f",
-    "arabic": "[eng][1.33]تماسك يا بي. جي. [3.33]واصل تنفيذ الخطة. [6.48]استقل عربة تلفريك إلى القرية. [9.07]التق بكيسلر في الحانة. [12][19.56]لا تل يصعب على المثابر، أليس كذلك يا بيلي؟ [22.44]لا تل يصعب على المثابر.[25.5]",
+    "arabic": "[eng][1.33]تماسك يا بي. جي. [3.33]واصل تنفيذ الخطة. [6.48]استقل عربة تلفريك إلى القرية. [9.07]التق بكيسلر في الحانة. [12][19.56]لا تل يصعب على المثابر، أليس كذلك يا بيلي الصغير؟ [22.44]لا تل يصعب على المثابر.[25.5]",
     "status": "translated",
     "notes": "تكييف المثل No hill for a stepper بصورة التل والمثابرة، مع إبقاء تكراره.",
     "context": "Unknown"

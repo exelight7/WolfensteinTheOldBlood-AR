@@ -1,0 +1,39 @@
+{
+  "corrections": 8,
+  "items": [
+    {
+      "id": "strings/english.lang:#str_video_dlc1_c04_elevator",
+      "reason": "Billy Boy drops Boy here, while rows 548, 2769, 2916 and 2936 consistently preserve the childhood nickname as \u0628\u064a\u0644\u064a \u0627\u0644\u0635\u063a\u064a\u0631; align this repeated line."
+    },
+    {
+      "id": "strings/english.lang:#str_vo_bj_dlc1_c01_029",
+      "reason": "The same hot-dog/Frankfurter joke is already adapted as \u0646\u0642\u0627\u0646\u0642 in the full scene at row 496 and Wesley's response at row 481; align the isolated B.J. line."
+    },
+    {
+      "id": "strings/english.lang:#str_vo_rudijager_dlc1_c01_030",
+      "reason": "Align the repeated hot-dog/Frankfurter joke with its established adaptation in full scene row 496 and response row 481."
+    },
+    {
+      "id": "strings/english.lang:#str_sec_dlc1_model_powerloader_desc",
+      "reason": "Laderoboter has two competing renderings: this profile uses transliteration while the mission, note at 1370 and all tutorial entries use \u0631\u0648\u0628\u0648\u062a \u0627\u0644\u062a\u062d\u0645\u064a\u0644. Align the same vehicle name."
+    },
+    {
+      "id": "strings/english.lang:#str_sec_dlc1_model_powerloader_name",
+      "reason": "Align the collectible vehicle label with the established tutorial and mission term \u0631\u0648\u0628\u0648\u062a \u0627\u0644\u062a\u062d\u0645\u064a\u0644."
+    },
+    {
+      "id": "strings/english.lang:#str_vo_officerhans_dlc1_c01_061",
+      "reason": "Align the radio-dialogue vehicle name with the established tutorial and mission term \u0631\u0648\u0628\u0648\u062a \u0627\u0644\u062a\u062d\u0645\u064a\u0644."
+    },
+    {
+      "id": "strings/english.lang:#str_vo_officerhans_dlc1_c01_061_spoken",
+      "reason": "Align the German-spoken companion line with the established tutorial and mission term \u0631\u0648\u0628\u0648\u062a \u0627\u0644\u062a\u062d\u0645\u064a\u0644."
+    },
+    {
+      "id": "strings/english.lang:#str_vo_helga_tape01_markus",
+      "reason": "The same recollection at row 3542 names the initial as \u0627\u0644\u0647\u0627\u0621 and the name is uniformly \u0647\u0648\u0628\u0631. Align the full recording with that Arabic initial; H is prose, not a protected token."
+    }
+  ],
+  "full_linguistic_review": false,
+  "in_game_verified": false
+}

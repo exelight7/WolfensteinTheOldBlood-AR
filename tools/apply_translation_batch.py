@@ -12,7 +12,7 @@ from local_reference import generate
 
 
 BRACKETS = re.compile(r"\[[^\]\r\n]*\]")
-TOKENS = re.compile(r"\[[^\]\r\n]*\]|<[^>\r\n]+>|%[-+#0]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[hlLzjt]*[diuoxXfFeEgGaAcspn]|%\d+|\{[^}\r\n]+\}|(?<!\w)_[A-Za-z][A-Za-z0-9_]*|\$[A-Za-z][A-Za-z0-9_]*")
+TOKENS = re.compile(r"\[[^\]\r\n]*\]|<[^>\r\n]+>|%[-+#0]*(?:\d+|\*)?(?:\.(?:\d+|\*))?[hlLzjt]*[diuoxXfFeEgGaAcspn]|%\d+|\{[^}\r\n]+\}|(?<!\w)_[A-Za-z][A-Za-z0-9_]*|\$[A-Za-z][A-Za-z0-9_]*|\^[0-9]")
 PUBLIC_FIELDS = ("id", "resource", "index", "location", "english_sha256", "arabic", "status", "notes", "context")
 
 
@@ -40,6 +40,10 @@ def validate(source, translation):
         errors.append("timing_or_language_tag_order_changed")
     if english.count("\n") != arabic.count("\n"):
         errors.append("newline_count_changed")
+    if any(english.count(c) != arabic.count(c) for c in ("\r", "\t")):
+        errors.append("control_character_count_changed")
+    if english.count("%") != arabic.count("%"):
+        errors.append("percent_escape_count_changed")
     if any(0xE000 <= ord(c) <= 0xF8FF or 0xFB50 <= ord(c) <= 0xFDFF
            or 0xFE70 <= ord(c) <= 0xFEFF or 0x202A <= ord(c) <= 0x202E
            or 0x2066 <= ord(c) <= 0x2069 for c in arabic):
