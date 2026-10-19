@@ -1,8 +1,10 @@
 # Release assets
 
 This directory holds the schema/template and the checked-in v1.0.0 update
-manifest. CI regenerates the manifest for future releases and attaches it to the
-GitHub Release; do not hand-edit the published asset.
+manifest. CI regenerates the manifest for every tag and attaches the generated
+file to the GitHub Release; the checked-in `release-manifest.json` mirrors the
+published v1.0.0 asset (installer hashes differ slightly between a local build
+and the CI runner build, so treat CI as authoritative).
 
 ## Assets attached to a release
 

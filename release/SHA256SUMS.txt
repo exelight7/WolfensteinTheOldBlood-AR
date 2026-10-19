@@ -1,1 +1,1 @@
-73520e5ab937e4224f10572975fc06c7ff7d34cbc30eabd30b6219d69380a416  WolfensteinAR-Manager-1.0.0-x64-setup.exe
+cfe7c3684af82c32df720acd739fb3b6d3837ddd2f9f11c322deab8716d4f71a  WolfensteinAR-Manager-1.0.0-x64-setup.exe

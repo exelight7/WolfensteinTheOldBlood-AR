@@ -38,7 +38,7 @@ corpus, packaged with a Windows installer/manager.
   verified vanilla `chunk0` and validates every shipped English hash; no game
   assets or English source text are redistributed.
 - Added the NSIS installer (`WolfensteinAR-Manager-1.0.0-x64-setup.exe`,
-  45.33 MiB) and verified that it bundles `resources/sidecar/wtob-build.exe`.
+  42.66 MiB) and verified that it bundles `resources/sidecar/wtob-build.exe`.
 - Added release CI: Windows app gates plus a tagged release workflow that builds
   the sidecar and installer, verifies the packaged sidecar, writes
   `release-manifest.json`/`SHA256SUMS.txt` and publishes the GitHub Release.

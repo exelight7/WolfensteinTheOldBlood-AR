@@ -60,8 +60,11 @@ Date: 2026-10-19
   `resources/sidecar/wtob-build.exe`) rebuilds from the user's own verified vanilla
   `chunk0`, validates every shipped English hash and reproduces the exact v1
   payload hashes (`c29a2b83â€¦`, `46a3dfccâ€¦`, `d995be90â€¦`).
-- Installer: `WolfensteinAR-Manager-1.0.0-x64-setup.exe`, 45.33 MiB,
-  SHA-256 `73520e5ab937e4224f10572975fc06c7ff7d34cbc30eabd30b6219d69380a416`.
+- Installer: `WolfensteinAR-Manager-1.0.0-x64-setup.exe`, 44,734,430 bytes
+  (42.66 MiB), SHA-256
+  `cfe7c3684af82c32df720acd739fb3b6d3837ddd2f9f11c322deab8716d4f71a`
+  (values published on the GitHub Release; the local build differs only in
+  size/hash because the CI runner rebuilds the binary).
 - Update manifest: `release/release-manifest.json` (camelCase schema consumed by
   `app/src-tauri/src/manifest.rs`).
 
@@ -87,7 +90,7 @@ Date: 2026-10-19
 | Rust tests + clippy | PASS (39) |
 | App typecheck + lint | PASS |
 | Frontend production build | PASS |
-| NSIS installer exists | PASS (45.33 MiB) |
+| NSIS installer exists | PASS (42.66 MiB) |
 | Packaged sidecar reproduces v1 hashes | PASS |
 | Backup/restore rollback tests | PASS |
 | Update manifest | PASS |
