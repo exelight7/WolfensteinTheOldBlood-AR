@@ -152,7 +152,7 @@
     "resource": "strings/english.lang",
     "index": 1803,
     "english_sha256": "52e0a479813ae44c1500f463c67ea36e233e44fccd274dd0df892b5be0d0b7d2",
-    "arabic": "كأس ما. عمرها أكثر من ألف سنة. لا بد أنها كانت للملك أوتو.",
+    "arabic": "كأس ما. عمره أكثر من ألف سنة. لا بد أنه كان للملك أوتو.",
     "status": "translated",
     "notes": "Source value is German despite the english field name; translated directly from German. Dialogue pronouns require scene review.",
     "context": "Unknown"
@@ -561,7 +561,7 @@
     "resource": "strings/english.lang",
     "index": 1848,
     "english_sha256": "3640c4eaf1830c6ebb9431d456aaf75be8636470c90aa48d7058519e1a38f5ad",
-    "arabic": "[ger]سقط أحد رجالنا! لدي رجل ساقط هنا!",
+    "arabic": "[ger]سقط أحد رجالنا! لدي رجل ملقى هنا!",
     "status": "translated",
     "context": "Unknown"
   },
@@ -1976,7 +1976,7 @@
     "resource": "strings/english.lang",
     "index": 2002,
     "english_sha256": "51a3696c0a69475dc37fa687bfcaf2e8e12407ae594071db7a7cf6e44f545a39",
-    "arabic": "أرتدي فولاذا ألمانيا لا يمكن اختراقه، ألا تدرك ذلك؟",
+    "arabic": "أرتدي فولاذًا ألمانيًا لا يمكن اختراقه، ألا تدرك ذلك؟",
     "status": "translated",
     "notes": "Source value is German despite the english field name; translated directly from German. Dialogue pronouns require scene review.",
     "context": "Unknown"
@@ -4521,7 +4521,7 @@
     "resource": "strings/english.lang",
     "index": 2276,
     "english_sha256": "f2179a0abe45aa43f620a6f9d83e3a98ed7e2d56aff7d2d708aa952f0fba1d86",
-    "arabic": "لودفيغ كيسلر صحفي سابق والقائد الحالي لخلية مقاومة كرايساو في قرية بادربورن. يدير حانة بادربورن ستارا له، بينما يجمع المعلومات عن أنشطة هيلغا فون شابس في قلعة ولفنشتاين القريبة.",
+    "arabic": "لودفيغ كيسلر صحفي سابق والقائد الحالي لخلية مقاومة كرايساو في قرية بادربورن. يدير حانة بادربورن كغطاء، بينما يجمع المعلومات عن أنشطة هيلغا فون شابس في قلعة ولفنشتاين القريبة.",
     "status": "translated",
     "notes": "New glossary proposals: Deathshead ديثسهيد; WESPE فيسبه; Kreisau كرايساو; Hans Grösse هانس غروسه; Laderoboter لادروبوتَر. Need consistency review.",
     "context": "Unknown"
@@ -5474,7 +5474,7 @@
     "resource": "strings/english.lang",
     "index": 2381,
     "english_sha256": "321068ef15fbe98b2eed8721acfb2d5607ef8929f8bbe284eea8a4d29243ec87",
-    "arabic": "قتل الجنود الثقال",
+    "arabic": "قتلات الجنود الثقيلين",
     "status": "translated",
     "context": "Unknown"
   },
@@ -5492,7 +5492,7 @@
     "resource": "strings/english.lang",
     "index": 2383,
     "english_sha256": "77877e6d672997af9bbc7ee9bf13f18753ef020cdef4d817d3bb1a1b9d56db59",
-    "arabic": "قتلات جنود القنص",
+    "arabic": "قتلات جنود القناصة",
     "status": "translated",
     "context": "Unknown"
   },
@@ -5780,7 +5780,7 @@
     "resource": "strings/english.lang",
     "index": 2415,
     "english_sha256": "8a627451c910048f9d891c9976a69d5dbca623980bfb076ec33050c3d97f9ac0",
-    "arabic": "موقع الحفر",
+    "arabic": "موقع التنقيب",
     "status": "translated",
     "context": "Unknown"
   },

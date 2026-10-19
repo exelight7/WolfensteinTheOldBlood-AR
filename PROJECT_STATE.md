@@ -1,35 +1,101 @@
 # Project state
 
-Date: 2026-10-15
+Date: 2026-10-19
 
-- Phase: translation explicitly authorized in stages 25%, 50%, 75%, 100% on the fixed confirmed corpus of 3574 records. Phase75 merged; final phase100 underway.
-- Build: workspace/menu_pilot_ordered, 33 translated records, 73 generated Arabic forms mapped to PUA, four font/atlas pairs changed. Ordered build installed on 2026-10-15. Previous append-only build crashed and is superseded.
-- Translation progress on confirmed 3574-record corpus: 2681 processed (75.01%), comprising 2499 translated (69.92%) and 182 do_not_translate (technical labels, empty/glyph metadata/placeholders). No translation is marked reviewed or in_game_verified.
-- Main English table remains 3572 unique IDs, 82 empty values, 241 duplicate-value groups. Full visible-game-text scope remains UNVERIFIED; percentages refer to the fixed confirmed corpus only.
-- Pilot: main-menu labels and adjacent help/navigation translated in translation/arabic/main_menu.json and merged into the ignored local bilingual master/reference. User requested this small pilot; mass translation remains gated.
-- Extraction: all 8 chunk indexes parsed to EOF (90863 records); 35 localization/font-name candidates extracted, no errors. Name filtering is not proof of complete text discovery.
-- Font / RTL / shaping: the user's screenshot shows Arabic main-menu labels and help with joined letters in the installed ordered build. Broader glyph/RTL/mixed-text/subtitle tests remain pending; individual records have not been promoted to in_game_verified yet.
-- Repack: append-only approach failed at runtime (FileTable is out of order). Ordered rebuilding now preserves resource order and untouched stored payloads; game log passed common preloading and user screenshot confirms menu loaded.
-- Installation / uninstall: locally executed install, restore and reinstall; original restoration and final installed hashes verified. Current state: INSTALLED.
-- Game: Steam app 350080, build 616161, English installed.
-- Source hashes: build 616161 hash pair enforced by builder/installer; only this experimental pair accepted. No public release or runtime-supported version declared.
-- Current experiment: original candidate maps in all six idf+ fonts contain no Arabic-range entries. Four font/atlas pairs now have appended pilot glyphs; runtime field semantics and visual rendering still need confirmation.
-- Local reference: generated 3572 records with AR above EN; source and source literals retained; repeat generation preserves existing Arabic and refuses source drift.
-- Tests: 15 synthetic tests pass, including ordered middle-resource replacement, binary VTR ID boundaries and dialogue-only export; original backup/restore hash round trip completed previously.
-- Git: foundation checkpoint 2d8028a pushed; tooling checkpoint recorded in Git history after this state update.
-- Original backups: workspace/backups/menu_pilot_original (ignored); preserve this folder and workspace/menu_pilot for uninstall/rollback.
-- Installed index SHA-256: 15c551baaa051a95a994f114a2ed1ee2061983e37edeac6ae4ebf18ec8ad4464.
-- Installed resources SHA-256: 5a61ac1d59fd10d4339bca4398324c08b09a149c75d5c6c82a1aa96a19801bc9.
-- Dialogue export: workspace/dialogue/ALL_DIALOGUE.local.jsonl and .md; 1586 source records, 1548 text-bearing, 15 empty, 23 placeholders. Per-source-chapter files also generated. No dialogue translated.
-- Dialogue audit: 8 chunk indexes, 11533 voice resources (10538 voicetracks, 995 voiceover declarations), 999 exported IDs have direct voice-resource references, zero unresolved referenced IDs. Remaining dialogue IDs retained from source naming, not discarded.
-- Limits: this exports written dialogue, not speech-to-text for audio without captions; playback order and speaker ownership inside multi-speaker blocks still need review.
-- Full chunk payload audit: 90863/90863 records decoded and scanned (100%), zero failures, 50595 unique payloads; 17082 candidate source snapshots retained locally.
-- Confirmed electronic-text corpus: 3574 records (3572 main English table plus 2 loose driver warnings), under workspace/all_text; primary local master and menu pilot unchanged.
-- Raw supplementary candidates: 646186 quoted/UI occurrences and 190514 native-binary printable runs. These are mostly technical strings, not a claimed translation count. 204 distinct phrase candidates prepared for review.
-- References: 25 missing English IDs (3 faction, 16 secrets, 6 UI), plus one preserved native key with a trailing space. No missing English fabricated.
-- Current extraction percentage: archive payload scanning 100%; main English table extraction 100%; total player-visible text percentage UNKNOWN. See docs/discovery/TEXT_COVERAGE.md for explicit remaining gates.
-- Tests: 23 passing synthetic tests including batch source preservation, timing/placeholder checks, exclusion handling and external-warning translation preservation during corpus regeneration. Current translation phase changes source data only; no new runtime installation.
+## Localization
+
+- Phase: **complete** for the confirmed electronic-text corpus of 3574 records
+  (3572 `strings/english.lang` + 2 loose driver-warning strings).
+- Counts: **3376 translated**, **198 `do_not_translate`** (technical labels,
+  empty/glyph metadata, placeholders) — every exclusion carries an explicit
+  reason. Master table: 3572 unique IDs, 82 empty values, 241 duplicate-value
+  groups.
+- The 33-entry main-menu pilot is merged into `translation/arabic/main_menu.json`.
+- This is **not** a claim of 100% of all visible game text. BSWF/menu textures,
+  image textures, Bink video and native engine messages remain **UNCERTIFIED**;
+  see `docs/discovery/TEXT_COVERAGE.md`.
+
+## Third review (v1.0.0 text freeze)
+
+- Automated re-validation of all 3574 records: **0** token/placeholder errors,
+  **0** master/corpus Arabic mismatches, **0** bidi/PUA artifacts. All flagged
+  formatting patterns were triaged as source-faithful and intentional.
+- Manual sampling of UI/achievement/challenge/dialogue records resolved the 13
+  outstanding `needs_context` items (German `legen/liegen` → `وضع/استلقى`) and
+  corrected **20** genuine defects (Agent Two gender, passive voice, plural verb
+  agreement, ghoul plural, an idiom, an elliptical clause and the controller
+  rebind dialog).
+- Evidence: `workspace/release_review/` (`THIRD_REVIEW.local.json`,
+  `RELEASE_LANGUAGE_REPORT.local.json`, `CONTEXT_RESOLUTION.local.json`,
+  `LANGUAGE_FIXES*.local.json`, and timestamped backups).
+
+## Build
+
+- Rebuilt the runtime from the frozen source.
+  - `workspace/runtime_full/` — `chunk0.index`
+    `5b8b17ca…e2b5916`, `chunk0.resources` `35887440…3e38477`.
+  - `workspace/runtime_complete/` — `chunk0.index`
+    `c29a2b83…c006f61`, `chunk0.resources` `46a3dfcc…23f6f60`,
+    `text/english.lang` `b4fb2ddb…05068017`. Static gate **passes**.
+- Exact hashes are registered in `config/supported_versions.json`.
+
+## Installation
+
+- The owner's machine currently runs the previous review build
+  (`runtime_complete_reviewed`: `chunk0.index` `d6da4489…0739126`,
+  `chunk0.resources` `217e6189…ec504511`). The v1.0.0 build above is **not yet
+  installed locally**; the desktop installer owns that operation.
+- The NSIS installer was built and silently test-installed to a temporary folder;
+  the installed app launches and bundles `resources/sidecar/wtob-build.exe`.
+- Rollback keystones: `workspace/backups/menu_pilot_original/` (vanilla) and
+  `workspace/backups/runtime_complete_reviewed_pretest/`. `scripts/UNINSTALL_*.ps1`
+  restore the vanilla state.
+
+## Desktop app
+
+- Tauri 2 + React manager under `app/`: Steam/manual detection, hash-based state
+  classification, verified backup, transactional install/rollback, repair,
+  restore, update checks and an Arabic RTL UI.
+- The sidecar (`tools/release_build.py`, packaged as
+  `resources/sidecar/wtob-build.exe`) rebuilds from the user's own verified vanilla
+  `chunk0`, validates every shipped English hash and reproduces the exact v1
+  payload hashes (`c29a2b83…`, `46a3dfcc…`, `d995be90…`).
+- Installer: `Wolfenstein AR Manager_1.0.0_x64-setup.exe`, 45.33 MiB,
+  SHA-256 `73520e5ab937e4224f10572975fc06c7ff7d34cbc30eabd30b6219d69380a416`.
+- Update manifest: `release/release-manifest.json` (camelCase schema consumed by
+  `app/src-tauri/src/manifest.rs`).
+
+## Repository
+
+- Open-source audit clean: no secrets, no developer absolute paths, no
+  English/proprietary content. `.gitignore` hardened for Node/Rust builds, env
+  files, archives, generated release data and generic `*.local.*`.
+- Licensing: code MIT (`LICENSE`). Translation-data licensing is still an open
+  owner decision (see `DECISIONS.md`).
+- Tests: **137** Python tests plus **39** Rust tests. Frontend typecheck/lint and
+  `cargo clippy --all-targets -- -D warnings` pass.
+
+## Release gates
+
+| Gate | Status |
+| --- | --- |
+| Localization review + freeze | PASS |
+| Static build verification | PASS |
+| Language gate | PASS |
+| Public-repo gate | PASS |
+| Python test suite | PASS (137) |
+| Rust tests + clippy | PASS (39) |
+| App typecheck + lint | PASS |
+| Frontend production build | PASS |
+| NSIS installer exists | PASS (45.33 MiB) |
+| Packaged sidecar reproduces v1 hashes | PASS |
+| Backup/restore rollback tests | PASS |
+| Update manifest | PASS |
+| CI + release workflows | PASS |
+| GitHub tag `v1.0.0` + Release | PENDING |
 
 ## NEXT ACTION
 
-Finish/validate/merge phase100 parts with tools/apply_translation_batch.py. Public phase25/phase50/phase75 data and QA reports are saved. Preserve English, native IDs, ordered timing/language tags and all placeholders; report translated versus excluded counts separately. At completion regenerate dialogue references and verify all source hashes/public ID uniqueness. Do not install new translations without a separate runtime test/build. Remaining extraction uncertainty is documented in docs/discovery/TEXT_COVERAGE.md.
+Run the final gates from a clean worktree, commit the release, push `main`, tag
+`v1.0.0`, and publish the GitHub Release with the installer,
+`release-manifest.json` and `SHA256SUMS.txt`.

@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "channel": "stable",
+  "minimumAppVersion": "1.0.0",
+  "gameVersion": "616161",
+  "releaseDate": "YYYY-MM-DD",
+  "files": [
+    {
+      "name": "Wolfenstein AR Manager_1.0.0_x64-setup.exe",
+      "kind": "installer",
+      "size": 0,
+      "sha256": "<sha256-of-installer>",
+      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/Wolfenstein%20AR%20Manager_1.0.0_x64-setup.exe"
+    }
+  ],
+  "changelogUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/blob/main/CHANGELOG.md",
+  "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/Wolfenstein%20AR%20Manager_1.0.0_x64-setup.exe"
+}

@@ -1,10 +1,14 @@
+# --- private / local-only data (never publish) ---
 workspace/
-reference/*.local.*
+backups/
+*.local.*
 reference/english_source.local.lang
-reports/*.local.*
-__pycache__/
-*.pyc
-.serena/
+last_reporting.md
+
+# one-off research notes that embed sampled English/credits text
+tools/classify_bink_audit.py
+
+# --- proprietary game data (never publish) ---
 *.resources
 *.index
 *.streamed
@@ -14,3 +18,47 @@ __pycache__/
 *.bfont
 *.ttf
 *.otf
+*.bik
+*.pak
+*.zip
+*.wad
+*.pk3
+
+# --- secrets / environment ---
+.env
+.env.*
+!.env.example
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- node / frontend ---
+node_modules/
+dist/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# --- rust / tauri ---
+target/
+src-tauri/target/
+
+# --- os / editors / tooling ---
+.serena/
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# --- generated release payload / sidecar (built locally and in CI) ---
+release_data/
+app/src-tauri/resources/sidecar/
+app/src-tauri/resources/localization/
+app/src-tauri/gen/

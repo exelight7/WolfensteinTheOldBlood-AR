@@ -1,8 +1,37 @@
 # Third-party notices
 
-- Wolfenstein: The Old Blood and its assets belong to their respective rights holders, including MachineGames and Bethesda. They are not open source and are not distributed here.
-- ID-Tech-5: external research reference only, not redistributed; see docs/distribution/TOOLS.md.
-- IBM Plex Sans Arabic: planned font source, not bundled yet. Official https://github.com/IBM/plex LICENSE.txt was retrieved on 2026-10-15 and preserved verbatim at licenses/IBM_Plex_OFL.txt. It identifies the Reserved Font Name "Plex". Inspect the font-specific license at the pinned font revision before distribution; use a neutral derivative name if required.
-- Thai localization: public documentation only; no files, translations, fonts or mod assets used.
-- Pilot IBM font source: https://github.com/IBM/plex/tree/39276912b05f700ee1dd491950c35d8697214208/packages/plex-sans-arabic. Unmodified TTF stays local; generated Arabic atlas glyphs derive from this OFL font. Any distributed derivative font resources must retain OFL/attribution and use a project-specific name, not the reserved name Plex. Original game atlas pixels are never distributed.
-- Pilot Python dependencies: Pillow, NumPy, SciPy, arabic-reshaper, python-bidi and fontTools; versions are pinned in requirements-pilot.txt. Dependencies are installed externally, not vendored. Preserve their own upstream licenses if packaging them in a future release.
+- Wolfenstein: The Old Blood and its assets belong to their respective rights
+  holders, including MachineGames and Bethesda. They are not open source and are
+  not distributed here.
+- ID-Tech-5: external research reference only, not redistributed; see
+  `docs/distribution/TOOLS.md`.
+- IBM Plex Sans Arabic: the typeface source used to derive the appended Arabic
+  glyphs. Licensed under the SIL Open Font License; the license text is preserved
+  verbatim at `licenses/IBM_Plex_OFL.txt` and identifies the Reserved Font Name
+  "Plex". Any distributed derivative font resources must retain the OFL and
+  attribution and must not use the reserved name "Plex". The unmodified TTF stays
+  local; original game atlas pixels are never distributed.
+- Thai localization: public documentation only; no files, translations, fonts or
+  mod assets used.
+
+## Application stack (v1.0.0 desktop installer/manager)
+
+The desktop application is built with the following open-source projects. Their
+licenses are compatible with the MIT-licensed application; exact versions are
+pinned in the application's lockfiles and summarized in the generated
+`NOTICE`/SBOM artifact attached to each release.
+
+- Tauri (Rust) and its plugins — Apache-2.0 / MIT.
+- React, React DOM, TypeScript, Vite and Tailwind CSS — MIT.
+- Rust crates used by the Tauri backend — per-crate licenses (MIT/Apache-2.0);
+  the release SBOM records the resolved set.
+- Python tooling dependencies (Pillow, NumPy, SciPy, arabic-reshaper,
+  python-bidi, fontTools) are used to build the localization sidecar; versions
+  are pinned in `requirements-pilot.txt` and are not vendored. Preserve their
+  upstream licenses if the sidecar is bundled in a release.
+
+## Game-content disclaimer
+
+The MIT license covers only this project's original code and data. It does not
+grant any rights to Wolfenstein: The Old Blood, its assets, or the IBM typeface.
+Users must own a legitimate copy of the game.

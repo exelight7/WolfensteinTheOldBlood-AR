@@ -1,19 +1,95 @@
 # Wolfenstein: The Old Blood — Arabic Localization
 
-Unofficial Arabic fan localization for the Windows Steam release. An **experimental main-menu pilot** can be built locally for the exact inventoried Steam version. This is not a complete localization or a verified public release.
+تعريب غير رسمي للعبة Wolfenstein: The Old Blood على Steam (ويندوز).
+Unofficial Arabic fan localization for the Windows Steam release.
 
-Translation stage75: 2681/3574 confirmed records processed (75.01%): 2499 translated and 182 excluded as technical/empty metadata/placeholders. The owner supplied an actual screenshot showing the small Arabic main-menu pilot; new translation batches are source data and have not been installed. Subtitle rendering, broader mixed RTL cases and full-game compatibility remain unverified.
+> Status: **v1.0.0.** The confirmed electronic-text corpus is fully translated,
+> verified and packaged with a Windows installer/manager. The installer rebuilds
+> the localization from the user's own vanilla game files; no game assets are
+> redistributed. See [PROJECT_STATE.md](PROJECT_STATE.md) for the release evidence.
 
-The intended typeface is IBM Plex Sans Arabic. Human translations will remain normal Unicode Arabic; any shaping or game-specific encoding will be generated during builds.
+## What this is
 
-Start with [PROJECT_STATE.md](PROJECT_STATE.md), [discovery](docs/discovery/DISCOVERY_REPORT.md), and [roadmap](ROADMAP.md). See [PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for the repository layout.
+- A community Arabic (فصحى) localization of *Wolfenstein: The Old Blood* text.
+- Scope is the **confirmed electronic-text corpus of 3574 records**: 3572 entries
+  of `strings/english.lang` plus 2 loose driver-warning strings. Of these,
+  **3376 are translated** and **198 are intentionally left untranslated**
+  (technical labels, empty/glyph metadata and placeholders) — every skipped record
+  is recorded with an explicit reason.
+- This is **not** a claim of 100% of every visible pixel of text. BSWF/menu
+  textures, image textures, Bink video and native engine messages are out of scope
+  and remain **UNCERTIFIED**. See [docs/discovery/TEXT_COVERAGE.md](docs/discovery/TEXT_COVERAGE.md).
 
-Read-only extraction and local reference commands are in [the build guide](docs/build/BUILD_GUIDE.md). Run `python -m unittest discover -s tests -v` for synthetic tooling checks.
+Original game assets, the complete English script and the extracted corpus stay
+**local only** and are excluded from Git. You need your own legally purchased copy.
 
-The ordered menu pilot has been installed locally with verified hashes; startup and main-menu display have been confirmed. See [installation and restoration](docs/build/INSTALL_GUIDE.md); keep the generated build and original backup folders for uninstall.
+## Installation
 
-Dialogue-only export is available locally: 1586 source records, 1548 with text. Dialogue translations are included in the staged source-data work. See [extraction instructions](docs/discovery/DIALOGUE_EXTRACTION.md). Full English is excluded from Git.
+Download `Wolfenstein AR Manager_1.0.0_x64-setup.exe` from
+[Releases](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases).
+The desktop manager detects a supported game version, verifies the base files
+against known hashes, backs up the originals, applies the patch atomically and
+can restore the vanilla state at any time.
 
-Text audit: 100% of 90863 chunk payloads decoded/scanned; 3574 confirmed electronic-text records extracted. This is **not** a claim of 100% of all visible game text. The owner authorized staged translation of this confirmed corpus; remaining [coverage gates](docs/discovery/TEXT_COVERAGE.md) are tracked separately.
+Manual build/install procedures for contributors are documented in
+[docs/build/BUILD_GUIDE.md](docs/build/BUILD_GUIDE.md) and
+[docs/build/INSTALL_GUIDE.md](docs/build/INSTALL_GUIDE.md). The desktop app is
+documented in [app/README.md](app/README.md).
 
-Original game assets and the complete English script remain local and are excluded from Git. A legally installed copy is required. Our code is MIT licensed; proprietary game content is not covered by that license. Arabic translation data licensing will be established before public translation contributions.
+Only game versions listed in [config/supported_versions.json](config/supported_versions.json)
+are accepted; unknown states are refused rather than overwritten.
+
+## How it works
+
+- Translations are stored as normal Unicode Arabic (logical order) with the
+  original native `#str_` ID and a SHA-256 of the source English; the English text
+  itself is never committed.
+- At build time the text is shaped (shaping + BiDi), and Arabic glyphs are appended
+  to the game fonts using an append-only SDF/PUA scheme that preserves the original
+  glyph indices, kerning and atlas pixels. The typeface source is IBM Plex Sans
+  Arabic (OFL) — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+- Formatting placeholders, timing tags and language tags are preserved exactly and
+  enforced by the batch validator.
+
+## Repository layout
+
+See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md). In short:
+
+- `app/` — Tauri 2 + React desktop manager and NSIS installer.
+- `translation/` — public Arabic translation data and glossary (no English).
+- `tools/` — extraction, build, sidecar, validation and release-safety tooling.
+- `tests/` — synthetic-only unit tests (`python -m unittest discover -s tests -v`).
+- `config/supported_versions.json` — the game-version gate.
+- `reports/` — generated QA reports.
+- `reference/`, `workspace/` — local-only masters, corpus and builds (Git-ignored).
+
+## Development
+
+```powershell
+python -m pip install -r requirements-pilot.txt pytest pyinstaller
+python -m unittest discover -s tests -v
+python -m pytest tests -q
+python tools/check_public_repo.py   # fails if the repo would leak secrets/assets
+
+# Desktop app + sidecar (Windows x64)
+python tools/prepare_release_data.py
+python tools/build_sidecar.py
+cd app
+npm ci
+npm run typecheck
+npm run lint
+npm run tauri build
+```
+
+The sidecar is a PyInstaller one-file executable bundled under the app's
+resources. It reads the user's verified vanilla `chunk0`, joins the shipped Arabic
+by ID while validating each source hash, and emits the patched archives plus a
+hash manifest.
+
+## Licensing
+
+- Source code and tooling: **MIT** (see [LICENSE](LICENSE)).
+- Translation data under `translation/`: shared for the community; see
+  [CONTRIBUTING.md](CONTRIBUTING.md) and [DECISIONS.md](DECISIONS.md).
+- The game and its assets are **not** open source and are not distributed here.
+  See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

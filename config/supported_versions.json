@@ -1,5 +1,35 @@
 {
-  "schema_version": 1,
-  "supported_versions": [],
-  "note": "Steam build 616161 exact source hashes are accepted for the experimental local menu pilot. Structural build/install/restore passed; no runtime-supported public version is declared yet."
+  "schema_version": 2,
+  "app_version": "1.0.0",
+  "supported_versions": [
+    {
+      "id": "steam-350080-build-616161",
+      "label": "Steam (Windows) — app 350080, build 616161",
+      "store": "steam",
+      "steam_app_id": 350080,
+      "game_build": "616161",
+      "platform": "windows-x64",
+      "executable": "WolfOldBlood_x64.exe",
+      "executable_sha256": "ded2ee4f65a5560ef0d716e622fa5146121d45e3736ed013d74964d02fba1cbd",
+      "vanilla": {
+        "base/chunk0.index": "3aa93b17e2d2167e686758428bdcc84c1895b61f1512a01814f0e62314cba750",
+        "base/chunk0.resources": "7a76fa93c0f122c556dcf8eeac94630a1d4a657db94c57cc15e41c506735e5b4",
+        "base/graphicsdriverwarningloc.json": "b3895590c7c7742ee3328db5fe407991cbc75af865a479d4cafb9511024fe31a"
+      },
+      "localized": {
+        "base/chunk0.index": "c29a2b833247562ddbb52d40598240782c1f9de6963347172c3e886f7c006f61",
+        "base/chunk0.resources": "46a3dfccaf83c3bf89c1d07c1271155c5144429a8c9b665d331b772fe23f6f60",
+        "base/graphicsdriverwarningloc.json": "d995be90351017dfbc645e6018269e98a146556b927908196b19d77b43bbf1b5"
+      },
+      "also_accepted_states": [
+        {
+          "label": "runtime_complete_reviewed (previous review build)",
+          "base/chunk0.index": "d6da4489a13b6b14198d73224c5abe0499f63c4d96d72c1dd021412fe0739126",
+          "base/chunk0.resources": "217e6189ed58bccb937da3a99d65525c65c7bf431ce667e905b65fb9ec504511"
+        }
+      ],
+      "installed_loose_note": "base/graphicsdriverwarningloc.json is a loose Arabic file already present after localization; it is not written by chunk0 install."
+    }
+  ],
+  "note": "Only source states listed here are accepted for patch/install. Unknown states must be refused, not overwritten."
 }

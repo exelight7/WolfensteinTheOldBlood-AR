@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests and public-repo guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-pilot.txt pytest
+
+      - name: Unit tests (unittest)
+        run: python -m unittest discover -s tests -v
+
+      - name: Unit tests (pytest)
+        run: python -m pytest tests -q
+
+      - name: Public-repo safety guard
+        run: python tools/check_public_repo.py
+
+  app:
+    name: Windows app gates
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Install frontend dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Typecheck and lint
+        working-directory: app
+        run: |
+          npm run typecheck
+          npm run lint
+
+      - name: Rust check, tests and clippy
+        working-directory: app/src-tauri
+        run: |
+          cargo check --all-targets
+          cargo test
+          cargo clippy --all-targets -- -D warnings
+
+      - name: Frontend production build
+        working-directory: app
+        run: npm run build
