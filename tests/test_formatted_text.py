@@ -16,6 +16,8 @@ BS = chr(92)
 
 def master_rows():
     path = ROOT / "reference" / "translation_master.local.jsonl"
+    if not path.exists():
+        raise unittest.SkipTest("local bilingual master is not published")
     return [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
