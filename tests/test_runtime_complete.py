@@ -18,9 +18,9 @@ ENIGMA = ["#str_menu_enigma_crack_it", "#str_menu_enigma_tab0", "#str_menu_enigm
           "#str_menu_enigma_tab2", "#str_menu_enigma_tab3", "#str_menu_enigma_you_cracked_it"]
 
 
+@unittest.skipUnless(IMG.exists(), "run tools/build_photosensitivity.py first")
 class BimageCodecTest(unittest.TestCase):
     def test_noop_rebuild_is_byte_identical(self):
-        self.assertTrue(IMG.exists(), "run tools/build_photosensitivity.py first")
         blob = IMG.read_bytes()
         hdr = bc.read_header(blob)
         rgba = bc.decode(blob[0x48:], hdr["width"], hdr["height"], hdr["fmt"])

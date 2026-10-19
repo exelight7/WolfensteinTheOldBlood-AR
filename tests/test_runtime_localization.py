@@ -35,6 +35,7 @@ class CorpusGateTests(unittest.TestCase):
                 self.assertTrue(row["arabic"])
 
 
+@unittest.skipUnless(brl.V4_INFO.exists(), "local PUA build info is not published")
 class MappingTests(unittest.TestCase):
     def setUp(self):
         self.v4 = brl.invert_pua(
@@ -62,6 +63,7 @@ class MappingTests(unittest.TestCase):
                          brl.build_mapping(set(reversed(list(chars))), self.v4))
 
 
+@unittest.skipUnless(brl.V4_INFO.exists(), "local PUA build info is not published")
 class ShapeRecordTests(unittest.TestCase):
     def mapping(self):
         return brl.invert_pua(

@@ -34,6 +34,8 @@ RECORD_123_ARABIC = (
     "ولفنشتاين. "
 )
 RECORD_123_TAGS = ["[eng]", "[2.4]", "[7.6]", "[10]", "[13.2]"]
+POC_INFO = ROOT / "workspace" / "opening_runtime_poc" / "BUILD_INFO.local.json"
+POC_RUNTIME = ROOT / "workspace" / "opening_runtime_poc" / "english_runtime.local.lang"
 
 
 def pua_encode(text, mapping):
@@ -67,10 +69,12 @@ class _123FixtureTests(unittest.TestCase):
         out = shape_line(RECORD_123_ARABIC, None)
         self.assertEqual(strip_tokens(out), concat)
 
+    @unittest.skipUnless(POC_INFO.exists() and POC_RUNTIME.exists(),
+                         "local opening-runtime POC artefacts are not published")
     def test_reproduces_installed_poc_value(self):
-        info = json.loads((ROOT / "workspace" / "opening_runtime_poc" / "BUILD_INFO.local.json").read_text(encoding="utf-8"))
+        info = json.loads(POC_INFO.read_text(encoding="utf-8"))
         expected_pua = pua_encode(shape_line(RECORD_123_ARABIC, None), info["mapping"])
-        runtime = (ROOT / "workspace" / "opening_runtime_poc" / "english_runtime.local.lang").read_text(encoding="utf-8")
+        runtime = POC_RUNTIME.read_text(encoding="utf-8")
         self.assertTrue(expected_pua in runtime,
                         "expected %r head=%r tail=%r" % (
                             expected_pua[:40], runtime[:80], expected_pua[len(expected_pua)//2:len(expected_pua)//2+40]))

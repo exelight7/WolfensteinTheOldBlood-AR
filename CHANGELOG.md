@@ -3,7 +3,7 @@
 All notable changes to this project are documented here.
 This project follows [semantic versioning](https://semver.org/).
 
-## [1.0.0] — 2026-10-19
+## [1.0.0] â€” 2026-10-19
 
 First public release of the Arabic localization of the confirmed electronic-text
 corpus, packaged with a Windows installer/manager.
@@ -37,7 +37,7 @@ corpus, packaged with a Windows installer/manager.
 - Added a PyInstaller sidecar that rebuilds the localization from the user's own
   verified vanilla `chunk0` and validates every shipped English hash; no game
   assets or English source text are redistributed.
-- Added the NSIS installer (`Wolfenstein AR Manager_1.0.0_x64-setup.exe`,
+- Added the NSIS installer (`WolfensteinAR-Manager-1.0.0-x64-setup.exe`,
   45.33 MiB) and verified that it bundles `resources/sidecar/wtob-build.exe`.
 - Added release CI: Windows app gates plus a tagged release workflow that builds
   the sidecar and installer, verifies the packaged sidecar, writes
@@ -45,7 +45,7 @@ corpus, packaged with a Windows installer/manager.
 - Tests: 39 Rust tests, 130 Python tests; `cargo clippy --all-targets -D warnings`
   and the frontend typecheck/lint/build pass.
 
-## [0.x] — 2026-10-15 — historical research milestones
+## [0.x] â€” 2026-10-15 â€” historical research milestones
 
 - Repository foundation, archive format reverse-engineering and complete
   extraction of 90863 chunk payloads (zero decode failures).

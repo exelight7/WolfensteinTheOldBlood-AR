@@ -6,13 +6,13 @@
   "releaseDate": "2026-10-19",
   "files": [
     {
-      "name": "Wolfenstein AR Manager_1.0.0_x64-setup.exe",
+      "name": "WolfensteinAR-Manager-1.0.0-x64-setup.exe",
       "kind": "installer",
       "size": 47534568,
       "sha256": "73520e5ab937e4224f10572975fc06c7ff7d34cbc30eabd30b6219d69380a416",
-      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/Wolfenstein%20AR%20Manager_1.0.0_x64-setup.exe"
+      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe"
     }
   ],
   "changelogUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/blob/main/CHANGELOG.md",
-  "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/Wolfenstein%20AR%20Manager_1.0.0_x64-setup.exe"
+  "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe"
 }

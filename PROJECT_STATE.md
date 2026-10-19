@@ -7,7 +7,7 @@ Date: 2026-10-19
 - Phase: **complete** for the confirmed electronic-text corpus of 3574 records
   (3572 `strings/english.lang` + 2 loose driver-warning strings).
 - Counts: **3376 translated**, **198 `do_not_translate`** (technical labels,
-  empty/glyph metadata, placeholders) — every exclusion carries an explicit
+  empty/glyph metadata, placeholders) â€” every exclusion carries an explicit
   reason. Master table: 3572 unique IDs, 82 empty values, 241 duplicate-value
   groups.
 - The 33-entry main-menu pilot is merged into `translation/arabic/main_menu.json`.
@@ -21,7 +21,7 @@ Date: 2026-10-19
   **0** master/corpus Arabic mismatches, **0** bidi/PUA artifacts. All flagged
   formatting patterns were triaged as source-faithful and intentional.
 - Manual sampling of UI/achievement/challenge/dialogue records resolved the 13
-  outstanding `needs_context` items (German `legen/liegen` → `وضع/استلقى`) and
+  outstanding `needs_context` items (German `legen/liegen` â†’ `ÙˆØ¶Ø¹/Ø§Ø³ØªÙ„Ù‚Ù‰`) and
   corrected **20** genuine defects (Agent Two gender, passive voice, plural verb
   agreement, ghoul plural, an idiom, an elliptical clause and the controller
   rebind dialog).
@@ -32,18 +32,18 @@ Date: 2026-10-19
 ## Build
 
 - Rebuilt the runtime from the frozen source.
-  - `workspace/runtime_full/` — `chunk0.index`
-    `5b8b17ca…e2b5916`, `chunk0.resources` `35887440…3e38477`.
-  - `workspace/runtime_complete/` — `chunk0.index`
-    `c29a2b83…c006f61`, `chunk0.resources` `46a3dfcc…23f6f60`,
-    `text/english.lang` `b4fb2ddb…05068017`. Static gate **passes**.
+  - `workspace/runtime_full/` â€” `chunk0.index`
+    `5b8b17caâ€¦e2b5916`, `chunk0.resources` `35887440â€¦3e38477`.
+  - `workspace/runtime_complete/` â€” `chunk0.index`
+    `c29a2b83â€¦c006f61`, `chunk0.resources` `46a3dfccâ€¦23f6f60`,
+    `text/english.lang` `b4fb2ddbâ€¦05068017`. Static gate **passes**.
 - Exact hashes are registered in `config/supported_versions.json`.
 
 ## Installation
 
 - The owner's machine currently runs the previous review build
-  (`runtime_complete_reviewed`: `chunk0.index` `d6da4489…0739126`,
-  `chunk0.resources` `217e6189…ec504511`). The v1.0.0 build above is **not yet
+  (`runtime_complete_reviewed`: `chunk0.index` `d6da4489â€¦0739126`,
+  `chunk0.resources` `217e6189â€¦ec504511`). The v1.0.0 build above is **not yet
   installed locally**; the desktop installer owns that operation.
 - The NSIS installer was built and silently test-installed to a temporary folder;
   the installed app launches and bundles `resources/sidecar/wtob-build.exe`.
@@ -59,8 +59,8 @@ Date: 2026-10-19
 - The sidecar (`tools/release_build.py`, packaged as
   `resources/sidecar/wtob-build.exe`) rebuilds from the user's own verified vanilla
   `chunk0`, validates every shipped English hash and reproduces the exact v1
-  payload hashes (`c29a2b83…`, `46a3dfcc…`, `d995be90…`).
-- Installer: `Wolfenstein AR Manager_1.0.0_x64-setup.exe`, 45.33 MiB,
+  payload hashes (`c29a2b83â€¦`, `46a3dfccâ€¦`, `d995be90â€¦`).
+- Installer: `WolfensteinAR-Manager-1.0.0-x64-setup.exe`, 45.33 MiB,
   SHA-256 `73520e5ab937e4224f10572975fc06c7ff7d34cbc30eabd30b6219d69380a416`.
 - Update manifest: `release/release-manifest.json` (camelCase schema consumed by
   `app/src-tauri/src/manifest.rs`).

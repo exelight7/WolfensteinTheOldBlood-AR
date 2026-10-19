@@ -14,11 +14,15 @@ import build_opening_poc as bop  # noqa: E402,F401
 from build_opening_poc import SCREENSHOT_RECORD, SCREENSHOT_SENTENCE, OPENING_IDS  # noqa: E402
 
 
+MASTER = ROOT / "reference" / "translation_master.local.jsonl"
+
+
 def master():
     return [json.loads(l) for l in
-            (ROOT / "reference" / "translation_master.local.jsonl").read_text(encoding="utf-8").splitlines() if l]
+            MASTER.read_text(encoding="utf-8").splitlines() if l]
 
 
+@unittest.skipUnless(MASTER.exists(), "local bilingual master is not published")
 class TraceTests(unittest.TestCase):
     def test_screenshot_record_translated_with_exact_sentence(self):
         rows = {r["id"]: r for r in master()}

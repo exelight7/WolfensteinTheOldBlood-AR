@@ -8,7 +8,7 @@ GitHub Release; do not hand-edit the published asset.
 
 | Asset | Purpose |
 | --- | --- |
-| `Wolfenstein AR Manager_<version>_x64-setup.exe` | Windows NSIS installer/manager. |
+| `WolfensteinAR-Manager-<version>-x64-setup.exe` | Windows NSIS installer/manager. |
 | `release-manifest.json` | Version, minimum app version, supported game build, file sizes and SHA-256 hashes. |
 | `SHA256SUMS.txt` | Human-readable checksums. |
 
@@ -17,11 +17,11 @@ contains game archives, game executables, English source text or the font binary
 
 ## Manifest rules
 
-- `version` — semver of the localization/app release.
-- `channel` — currently only `stable`.
-- `minimumAppVersion` — oldest app that may install this package.
-- `gameVersion` — game build string (`616161` for Steam app 350080).
-- `files` — every asset needs `name`, `size`, `sha256` and an HTTPS
+- `version` â€” semver of the localization/app release.
+- `channel` â€” currently only `stable`.
+- `minimumAppVersion` â€” oldest app that may install this package.
+- `gameVersion` â€” game build string (`616161` for Steam app 350080).
+- `files` â€” every asset needs `name`, `size`, `sha256` and an HTTPS
   `downloadUrl` under this repository's Releases.
 - The app verifies the manifest version, semver shape, HTTPS URLs, file names and
   every payload hash before installing.

@@ -6,7 +6,7 @@
   "releaseDate": "YYYY-MM-DD",
   "files": [
     {
-      "name": "Wolfenstein AR Manager_1.0.0_x64-setup.exe",
+      "name": "WolfensteinAR-Manager-1.0.0-x64-setup.exe",
       "kind": "installer",
       "size": 0,
       "sha256": "<sha256-of-installer>",

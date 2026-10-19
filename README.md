@@ -1,6 +1,6 @@
-# Wolfenstein: The Old Blood — Arabic Localization
+# Wolfenstein: The Old Blood â€” Arabic Localization
 
-تعريب غير رسمي للعبة Wolfenstein: The Old Blood على Steam (ويندوز).
+ØªØ¹Ø±ÙŠØ¨ ØºÙŠØ± Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹Ø¨Ø© Wolfenstein: The Old Blood Ø¹Ù„Ù‰ Steam (ÙˆÙŠÙ†Ø¯ÙˆØ²).
 Unofficial Arabic fan localization for the Windows Steam release.
 
 > Status: **v1.0.0.** The confirmed electronic-text corpus is fully translated,
@@ -10,11 +10,11 @@ Unofficial Arabic fan localization for the Windows Steam release.
 
 ## What this is
 
-- A community Arabic (فصحى) localization of *Wolfenstein: The Old Blood* text.
+- A community Arabic (ÙØµØ­Ù‰) localization of *Wolfenstein: The Old Blood* text.
 - Scope is the **confirmed electronic-text corpus of 3574 records**: 3572 entries
   of `strings/english.lang` plus 2 loose driver-warning strings. Of these,
   **3376 are translated** and **198 are intentionally left untranslated**
-  (technical labels, empty/glyph metadata and placeholders) — every skipped record
+  (technical labels, empty/glyph metadata and placeholders) â€” every skipped record
   is recorded with an explicit reason.
 - This is **not** a claim of 100% of every visible pixel of text. BSWF/menu
   textures, image textures, Bink video and native engine messages are out of scope
@@ -25,7 +25,7 @@ Original game assets, the complete English script and the extracted corpus stay
 
 ## Installation
 
-Download `Wolfenstein AR Manager_1.0.0_x64-setup.exe` from
+Download `WolfensteinAR-Manager-1.0.0-x64-setup.exe` from
 [Releases](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases).
 The desktop manager detects a supported game version, verifies the base files
 against known hashes, backs up the originals, applies the patch atomically and
@@ -47,7 +47,7 @@ are accepted; unknown states are refused rather than overwritten.
 - At build time the text is shaped (shaping + BiDi), and Arabic glyphs are appended
   to the game fonts using an append-only SDF/PUA scheme that preserves the original
   glyph indices, kerning and atlas pixels. The typeface source is IBM Plex Sans
-  Arabic (OFL) — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+  Arabic (OFL) â€” see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - Formatting placeholders, timing tags and language tags are preserved exactly and
   enforced by the batch validator.
 
@@ -55,13 +55,13 @@ are accepted; unknown states are refused rather than overwritten.
 
 See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md). In short:
 
-- `app/` — Tauri 2 + React desktop manager and NSIS installer.
-- `translation/` — public Arabic translation data and glossary (no English).
-- `tools/` — extraction, build, sidecar, validation and release-safety tooling.
-- `tests/` — synthetic-only unit tests (`python -m unittest discover -s tests -v`).
-- `config/supported_versions.json` — the game-version gate.
-- `reports/` — generated QA reports.
-- `reference/`, `workspace/` — local-only masters, corpus and builds (Git-ignored).
+- `app/` â€” Tauri 2 + React desktop manager and NSIS installer.
+- `translation/` â€” public Arabic translation data and glossary (no English).
+- `tools/` â€” extraction, build, sidecar, validation and release-safety tooling.
+- `tests/` â€” synthetic-only unit tests (`python -m unittest discover -s tests -v`).
+- `config/supported_versions.json` â€” the game-version gate.
+- `reports/` â€” generated QA reports.
+- `reference/`, `workspace/` â€” local-only masters, corpus and builds (Git-ignored).
 
 ## Development
 

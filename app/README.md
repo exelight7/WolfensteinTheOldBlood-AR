@@ -33,7 +33,7 @@ npm run tauri build
 ```
 
 The installer is written to
-`app/src-tauri/target/release/bundle/nsis/Wolfenstein AR Manager_1.0.0_x64-setup.exe`.
+`app/src-tauri/target/release/bundle/nsis/WolfensteinAR-Manager-1.0.0-x64-setup.exe`.
 
 `prepare_release_data.py` copies the public translation partitions and the
 hash-pinned IBM Plex Sans Arabic font, and converts `config/pua_mapping.json` into
