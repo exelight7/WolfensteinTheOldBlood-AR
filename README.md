@@ -1,77 +1,122 @@
-# Wolfenstein: The Old Blood â€” Arabic Localization
+<div align="center" dir="rtl">
 
-ØªØ¹Ø±ÙŠØ¨ ØºÙŠØ± Ø±Ø³Ù…ÙŠ Ù„Ù„Ø¹Ø¨Ø© Wolfenstein: The Old Blood Ø¹Ù„Ù‰ Steam (ÙˆÙŠÙ†Ø¯ÙˆØ²).
-Unofficial Arabic fan localization for the Windows Steam release.
+<img src="docs/screenshots/manager-home.png" alt="واجهة مدير التعريب العربي للعبة Wolfenstein: The Old Blood" width="100%">
 
-> Status: **v1.0.0.** The confirmed electronic-text corpus is fully translated,
-> verified and packaged with a Windows installer/manager. The installer rebuilds
-> the localization from the user's own vanilla game files; no game assets are
-> redistributed. See [PROJECT_STATE.md](PROJECT_STATE.md) for the release evidence.
+# ولفنشتاين: ذا أولد بلود — التعريب العربي
 
-## What this is
+**عِش أحداث Wolfenstein: The Old Blood بالعربية الفصحى.**
 
-- A community Arabic (ÙØµØ­Ù‰) localization of *Wolfenstein: The Old Blood* text.
-- Scope is the **confirmed electronic-text corpus of 3574 records**: 3572 entries
-  of `strings/english.lang` plus 2 loose driver-warning strings. Of these,
-  **3376 are translated** and **198 are intentionally left untranslated**
-  (technical labels, empty/glyph metadata and placeholders) â€” every skipped record
-  is recorded with an explicit reason.
-- This is **not** a claim of 100% of every visible pixel of text. BSWF/menu
-  textures, image textures, Bink video and native engine messages are out of scope
-  and remain **UNCERTIFIED**. See [docs/discovery/TEXT_COVERAGE.md](docs/discovery/TEXT_COVERAGE.md).
+تعريب مجتمعي غير رسمي لنسخة Steam على ويندوز، مع تطبيق عربي للتثبيت والتحديث والاستعادة.
 
-Original game assets, the complete English script and the extracted corpus stay
-**local only** and are excluded from Git. You need your own legally purchased copy.
+[![الإصدار](https://img.shields.io/badge/release-v1.0.0-d99a32)](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/tag/v1.0.0)
+![النظام](https://img.shields.io/badge/Windows-10%20%2F%2011%20x64-0078D4)
+![المتجر](https://img.shields.io/badge/Steam-350080-171a21)
+[![ترخيص الكود](https://img.shields.io/badge/code-MIT-32a889)](LICENSE)
 
-## Installation
+### [⬇ تنزيل مدير التعريب — v1.0.0](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe)
 
-Download `WolfensteinAR-Manager-1.0.0-x64-setup.exe` from
-[Releases](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases).
-The desktop manager detects a supported game version, verifies the base files
-against known hashes, backs up the originals, applies the patch atomically and
-can restore the vanilla state at any time.
+[أحدث إصدار مستقر](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/latest) · [سجل التغييرات](CHANGELOG.md) · [الإبلاغ عن مشكلة](https://github.com/exelight7/WolfensteinTheOldBlood-AR/issues)
 
-Manual build/install procedures for contributors are documented in
-[docs/build/BUILD_GUIDE.md](docs/build/BUILD_GUIDE.md) and
-[docs/build/INSTALL_GUIDE.md](docs/build/INSTALL_GUIDE.md). The desktop app is
-documented in [app/README.md](app/README.md).
+</div>
 
-Only game versions listed in [config/supported_versions.json](config/supported_versions.json)
-are accepted; unknown states are refused rather than overwritten.
+## نبذة
 
-## How it works
+يقدّم المشروع ترجمة عربية فصحى للنصوص الإلكترونية المؤكدة في اللعبة، بما يشمل القوائم والحوارات والأوصاف، مع معالجة اتصال الحروف واتجاه الكتابة العربية. يعيد مدير التعريب بناء الملفات محليًا من نسختك الأصلية، ثم يتحقق منها ويثبّتها بعد حفظ نسخة احتياطية.
 
-- Translations are stored as normal Unicode Arabic (logical order) with the
-  original native `#str_` ID and a SHA-256 of the source English; the English text
-  itself is never committed.
-- At build time the text is shaped (shaping + BiDi), and Arabic glyphs are appended
-  to the game fonts using an append-only SDF/PUA scheme that preserves the original
-  glyph indices, kerning and atlas pixels. The typeface source is IBM Plex Sans
-  Arabic (OFL) â€” see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-- Formatting placeholders, timing tags and language tags are preserved exactly and
-  enforced by the batch validator.
+**تحتاج إلى امتلاك نسخة أصلية مدعومة من اللعبة.** لا يتضمن التنزيل ملفات اللعبة أو أرشيفاتها الأصلية.
 
-## Repository layout
+## المميزات
 
-See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md). In short:
+- ترجمة النصوص الإلكترونية المؤكدة ومراجعتها لغويًا، مع توحيد المصطلحات.
+- دعم الحروف العربية المتصلة واتجاه الكتابة من اليمين إلى اليسار.
+- نصوص واجهة Enigma، وتحذير الحساسية للضوء، وتحذير تعريف بطاقة الرسوميات بالعربية.
+- مدير بواجهة عربية يكتشف تثبيت Steam، مع اختيار مجلد اللعبة يدويًا.
+- تحقق من سلامة الملفات، ونسخ احتياطي موثّق، وتراجع تلقائي عند فشل التثبيت.
+- أدوات للإصلاح واستعادة الأصل، وفحص توفر تحديثات التطبيق والتعريب.
 
-- `app/` â€” Tauri 2 + React desktop manager and NSIS installer.
-- `translation/` â€” public Arabic translation data and glossary (no English).
-- `tools/` â€” extraction, build, sidecar, validation and release-safety tooling.
-- `tests/` â€” synthetic-only unit tests (`python -m unittest discover -s tests -v`).
-- `config/supported_versions.json` â€” the game-version gate.
-- `reports/` â€” generated QA reports.
-- `reference/`, `workspace/` â€” local-only masters, corpus and builds (Git-ignored).
+## صور من التعريب
 
-## Development
+[شاهد لقطة مدير التعريب بالحجم الكامل](docs/screenshots/manager-home.png) — وهي الصورة المعروضة أعلى الصفحة.
+
+تُظهر اللقطة واجهة المدير v1.0.0 أثناء اكتشاف تعريب سابق v0.9.0. هذا رقم الحالة المكتشفة داخل اللقطة؛ الإصدار العام الحالي هو **v1.0.0**. لا تتوفر حاليًا لقطات لعب عربية منشورة في هذا المستودع.
+
+## التنزيل
+
+| الملف | الاستخدام |
+| :--- | :--- |
+| [WolfensteinAR-Manager-1.0.0-x64-setup.exe](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe) | مثبّت مدير التعريب لويندوز — نحو 42.66 MiB |
+| [SHA256SUMS.txt](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/SHA256SUMS.txt) | بصمة الملف للتحقق من سلامة التنزيل |
+
+اختر ملف المثبّت بامتداد `.exe` من [صفحة الإصدارات](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases)، فملفات **Source code** مخصصة للمطورين.
+
+> مثبّت v1.0.0 غير موقّع رقميًا، وقد يعرض Windows SmartScreen تنبيهًا. نزّله من صفحة المشروع، وقارن بصمته بملف SHA256SUMS عند الحاجة. لا يلزم تعطيل وسائل حماية ويندوز.
+
+## التثبيت
+
+1. أغلق اللعبة، ثم نزّل المثبّت وثبّت مدير التعريب.
+2. افتح المدير؛ سيبحث عن اللعبة في مكتبات Steam. إن لم يجدها، اضغط **«اختيار مجلد اللعبة يدويًا»** واختر مجلدها الذي يحتوي على `WolfOldBlood_x64.exe`.
+3. انتظر فحص الملفات والتأكد من أن النسخة مدعومة، ثم اضغط **«تثبيت التعريب»**.
+4. اترك العملية تكتمل؛ ينشئ المدير نسخة احتياطية ويتحقق من الملفات الناتجة قبل اعتماد التثبيت.
+5. بعد ظهور رسالة النجاح، شغّل اللعبة من Steam.
+
+إذا ظهرت حالة ملفات غير معروفة، تأكد من اختيار المجلد الصحيح ومن توافق نسختك. لا يكتب المدير فوق ملفات لا يتعرف عليها.
+
+## مدير التعريب
+
+كل ما تحتاجه في مكان واحد: حالة اللعبة والتعريب في **«الرئيسية»**، وفحص الإصدارات في **«التحديثات»**، والتحقق من النسخة الاحتياطية والإصلاح والاستعادة في **«النسخ الاحتياطي»**.
+
+يحفظ المدير بياناته ونسخه الاحتياطية داخل `%LOCALAPPDATA%\WolfensteinAR\`. احتفظ بالنسخة الاحتياطية ما دام التعريب مثبتًا.
+
+## التحديثات
+
+من صفحة **«التحديثات»** اضغط **«التحقق من التحديثات»**. يمكنك فتح صفحة الإصدار وسجل التغييرات من داخل التطبيق. عند توفر إصدار جديد من المدير، نزّل مثبّته من GitHub واتبع ملاحظات الإصدار؛ ولتعريب سابق يتعرف عليه المدير استخدم زر **«تحديث»** في الرئيسية عندما يكون متاحًا.
+
+## الاستعادة وإزالة التعريب
+
+أغلق اللعبة، ثم اضغط **«استعادة الأصل»** من الرئيسية أو صفحة النسخ الاحتياطي. يتحقق المدير من النسخة الاحتياطية ويعيد الملفات الأصلية، ثم يفحص سلامتها.
+
+**استعد الأصل قبل إزالة تطبيق المدير.** إزالة التطبيق وحدها ليست بديلًا عن استعادة ملفات اللعبة. إذا ظهرت مشكلة في تثبيت التعريب، استخدم **«إصلاح»**؛ أما الملفات غير المعروفة فتحتاج إلى مراجعتها أولًا.
+
+## التوافق
+
+| المتطلب | المدعوم حاليًا |
+| :--- | :--- |
+| النظام | Windows 10 / 11، بمعمارية x64 |
+| نسخة اللعبة | Steam — App ID: `350080` |
+| بناء اللعبة | `616161`، مع تطابق بصمات الملفات المسجلة |
+| واجهة المدير | تتطلب Microsoft Edge WebView2 |
+
+لا توجد حاليًا مطابقة معتمدة لمتاجر أو أبنية أخرى. تعديلات أخرى على الملفات نفسها قد تمنع التثبيت. المرجع التقني: [قائمة النسخ المدعومة](config/supported_versions.json).
+
+## حالة المشروع
+
+**v1.0.0 متاح للتنزيل.** اكتملت ترجمة مجموعة النصوص الإلكترونية المؤكدة ومراجعتها وتجهيزها للتثبيت عبر المدير.
+
+يشمل أساس الإصدار الموثّق **3574 سجلًا**: **3376 مترجمًا** و**198 مستثنى عمدًا**، مثل المعرّفات التقنية والقيم الفارغة وعناصر التنسيق. أضيفت أيضًا نصوص واجهة Enigma والتحذير المصوّر للحساسية للضوء. هذه الأرقام تصف مجموعة النصوص الموثقة، ولا تعني أن كل نص مرسوم في اللعبة مترجم.
+
+## القيود المعروفة
+
+- لا يشمل اعتماد التغطية جميع النصوص المدمجة في الصور والقوام والواجهات المجمّعة ومقاطع Bink ورسائل المحرك الأصلية؛ وقد تبقى بعض هذه النصوص بلغتها الأصلية.
+- التوافق محصور في النسخة وبصمات الملفات المذكورة أعلاه.
+- المثبّت غير موقّع رقميًا، كما هو موضح في قسم التنزيل.
+
+للتفاصيل التقنية: [نطاق التغطية النصية](docs/discovery/TEXT_COVERAGE.md). للإبلاغ عن خطأ، أرفق وصفًا لمكانه ولقطة عند الإمكان وإصدار التعريب، دون ملفات اللعبة أو بيانات شخصية.
+
+## المساهمة
+
+نرحب ببلاغات الأخطاء واقتراحات تحسين التطبيق والتوثيق عبر [Issues](https://github.com/exelight7/WolfensteinTheOldBlood-AR/issues) وطلبات الدمج. راجع [دليل المساهمة](CONTRIBUTING.md)، وللثغرات الأمنية اتبع [سياسة الأمان](SECURITY.md).
+
+استقبال دفعات الترجمة معلّق إلى حين حسم ترخيص بياناتها. لا تُرفق ملفات اللعبة أو النص الإنجليزي الكامل أو الأصول المستخرجة.
+
+## البناء من المصدر
+
+<details>
+<summary>للمطورين: المتطلبات وأوامر بناء مدير التعريب</summary>
+
+يتطلب البناء على Windows x64: ‏Python 3.12، وNode.js 24، وRust stable مع أدوات MSVC، ومتطلبات بناء Tauri 2 وWebView2. شغّل الأوامر التالية من جذر المستودع:
 
 ```powershell
-python -m pip install -r requirements-pilot.txt pytest pyinstaller
-python -m unittest discover -s tests -v
-python -m pytest tests -q
-python tools/check_public_repo.py   # fails if the repo would leak secrets/assets
-
-# Desktop app + sidecar (Windows x64)
+python -m pip install -r requirements-pilot.txt pyinstaller==6.22.3
 python tools/prepare_release_data.py
 python tools/build_sidecar.py
 cd app
@@ -81,15 +126,18 @@ npm run lint
 npm run tauri build
 ```
 
-The sidecar is a PyInstaller one-file executable bundled under the app's
-resources. It reads the user's verified vanilla `chunk0`, joins the shipped Arabic
-by ID while validating each source hash, and emits the patched archives plus a
-hash manifest.
+توجد حزمة NSIS الناتجة في `app/src-tauri/target/release/bundle/nsis/`. لا يلزم البناء من المصدر لاستخدام التعريب. للمزيد: [توثيق تطبيق المدير](app/README.md) و[سير بناء الإصدار](.github/workflows/release.yml).
 
-## Licensing
+</details>
 
-- Source code and tooling: **MIT** (see [LICENSE](LICENSE)).
-- Translation data under `translation/`: shared for the community; see
-  [CONTRIBUTING.md](CONTRIBUTING.md) and [DECISIONS.md](DECISIONS.md).
-- The game and its assets are **not** open source and are not distributed here.
-  See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## الحقوق والترخيص
+
+المشروع تعريب مجتمعي غير رسمي، وغير تابع لـ MachineGames أو Bethesda. حقوق اللعبة وعلاماتها وأصولها لأصحابها، ولا تُوزّع ضمن المشروع.
+
+الكود والأدوات الأصلية مرخّصة بموجب [MIT](LICENSE). ترخيص بيانات الترجمة العربية لم يُحسم بعد؛ لا تفترض شمولها بترخيص الكود. راجع [القرارات](DECISIONS.md) و[إشعارات الأطراف الثالثة](THIRD_PARTY_NOTICES.md).
+
+## الاعتمادات
+
+- إعداد التعريب وتطوير مديره: [exelight7](https://github.com/exelight7) والمساهمون في المشروع.
+- الخط العربي المستخدم في توليد الحروف: **IBM Plex Sans Arabic**، بترخيص [SIL Open Font License](licenses/IBM_Plex_OFL.txt).
+- مدير التعريب مبني باستخدام **Tauri 2 وReact وTypeScript**، مع أدوات Python لإعادة بناء التعريب محليًا.
