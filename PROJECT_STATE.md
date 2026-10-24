@@ -2,7 +2,7 @@
 
 Date: 2026-10-24
 
-## Release 1.0.1
+## Release 1.0.1 — published
 
 - Owner authorized stable publication with desktop and manual downloads.
 - Arabic README redesigned with an original red/black SVG banner and clear download choices.
@@ -12,8 +12,13 @@ Date: 2026-10-24
 - Manual ZIP: Install.cmd / Restore.cmd, Arabic PowerShell guidance, frozen
   builder and licenses. No Python installation or game archives are required
   in the download. Builds from the user's supported originals locally.
-- Publication is performed by the v1.0.1 tag workflow; the published manifest
-  is authoritative for downloadable artifact sizes and hashes.
+- Published stable/latest release: https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/tag/v1.0.1
+- Release workflow 40047223873 and CI 40047220941 both passed. The downloaded
+  installer was silently installed/launched/uninstalled; the published manual
+  ZIP completed install/restore with exact original hashes on an isolated copy.
+- Published installer: 44783408 bytes; SHA256 aec5e27cf58f766376e37880d5a18aa410ba9dd1dfd517f00a27583b9c958a32.
+- Published manual ZIP: 42731901 bytes; SHA256 87bf7dbdb2c782a61b6b6c9833f5b543ad01861f7541c71e8cc4e7eb103699ae.
+- Checked-in manifest/checksums now mirror the public assets. No tag was moved.
 
 ## Localization and font repair
 

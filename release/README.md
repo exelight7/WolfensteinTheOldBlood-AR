@@ -1,33 +1,22 @@
-# Release assets
+# ملفات الإصدار
 
-This directory holds the schema/template and the checked-in v1.0.0 update
-manifest. CI regenerates the manifest for every tag and attaches the generated
-file to the GitHub Release; the checked-in `release-manifest.json` mirrors the
-published v1.0.0 asset (installer hashes differ slightly between a local build
-and the CI runner build, so treat CI as authoritative).
+تُنشر الحزمتان في [صفحة الإصدارات](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases).
 
-## Assets attached to a release
-
-| Asset | Purpose |
+| الملف | الاستخدام |
 | --- | --- |
-| `WolfensteinAR-Manager-<version>-x64-setup.exe` | Windows NSIS installer/manager. |
-| `release-manifest.json` | Version, minimum app version, supported game build, file sizes and SHA-256 hashes. |
-| `SHA256SUMS.txt` | Human-readable checksums. |
+| `WolfensteinAR-Manager-<version>-x64-setup.exe` | برنامج التثبيت والإدارة لويندوز. |
+| `WolfensteinAR-Manual-<version>.zip` | تثبيت يدوي بأداة مستقلة، مع النسخ الاحتياطي والاستعادة. |
+| `release-manifest.json` | الإصدار وروابط التنزيل والأحجام وبصمات الملفات. |
+| `SHA256SUMS.txt` | بصمات الحزمتين للتحقق من التنزيل. |
 
-The installer bundles the localization sidecar and public Arabic data. It never
-contains game archives, game executables, English source text or the font binary.
+لا تحتوي التنزيلات على أرشيفات اللعبة أو ملفها التنفيذي أو النص الإنجليزي الكامل.
+تُبنى الملفات محليًا من نسخة المستخدم. تتضمن أداة البناء الخط الأصلي غير المعدّل
+بترخيص OFL، وترافق الحزمتين إشعارات التراخيص.
 
-## Manifest rules
+ينشئ مسار النشر الحزم والبيانات الوصفية لكل وسم إصدار. الملف المرفق بالإصدار
+هو مرجع البصمات؛ قد تختلف بايتات مثبّت بُني محليًا عن بناء الخادم. تُحدّث النسخة
+المحفوظة في المستودع بعد النشر لتطابق الملفات المنشورة.
 
-- `version` â€” semver of the localization/app release.
-- `channel` â€” currently only `stable`.
-- `minimumAppVersion` â€” oldest app that may install this package.
-- `gameVersion` â€” game build string (`616161` for Steam app 350080).
-- `files` â€” every asset needs `name`, `size`, `sha256` and an HTTPS
-  `downloadUrl` under this repository's Releases.
-- The app verifies the manifest version, semver shape, HTTPS URLs, file names and
-  every payload hash before installing.
-- No absolute paths, usernames, tokens or game assets appear in any asset.
-
-See `release-manifest.template.json` for the exact camelCase shape expected by
-`app/src-tauri/src/manifest.rs`.
+ملاحظات الإصدار القصيرة بالعربية محفوظة في `RELEASE_NOTES_AR.md`.
+شكل البيانات camelCase متوافق مع `app/src-tauri/src/manifest.rs`، ويشمل
+مدخلي `installer` و`manual` وروابط HTTPS وبصمات SHA-256.

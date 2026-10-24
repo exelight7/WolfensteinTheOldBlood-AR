@@ -104,25 +104,6 @@ jobs:
           }
           Start-Process -FilePath "$target/uninstall.exe" -ArgumentList '/S' -WindowStyle Hidden -Wait
 
-      - name: Remove superseded release assets
-        if: startsWith(github.ref, 'refs/tags/')
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          $keep = @(
-            "WolfensteinAR-Manager-$env:VERSION-x64-setup.exe",
-            "WolfensteinAR-Manual-$env:VERSION.zip",
-            "release-manifest.json",
-            "SHA256SUMS.txt"
-          )
-          $existing = @(gh release view $env:TAG --json assets -q '.assets[].name' 2>$null)
-          foreach ($name in $existing) {
-            if ($name -and ($keep -notcontains $name)) {
-              gh release delete-asset $env:TAG $name -y
-            }
-          }
-
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:

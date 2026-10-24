@@ -1,3 +1,16 @@
+# بناء الإصدار الحالي
+
+لبناء البرنامج والحزمة اليدوية راجع [دليل البرنامج](../../app/README.md).
+شغّل `tools/prepare_release_data.py` ثم `tools/build_sidecar.py`، وبعدهما
+`tools/build_manual_package.py` للحزمة اليدوية و`npm run tauri build` داخل
+`app/` للبرنامج. متطلبات Python وNode وRust تخص التطوير فقط؛ المستخدم النهائي
+لا يحتاج Python. خطوات الاستخدام في [دليل التثبيت](INSTALL_GUIDE.md).
+
+المقاطع التالية توثيق تاريخي لأدوات الاستخراج وتجربة القوائم، وليست تعليمات
+بناء أو تثبيت الإصدار الحالي.
+
+---
+
 # Extraction and local reference
 
 Requires Python 3.10+; initial validation used Python 3.12. No extra Python dependencies. These commands generate research outputs, **not an installable mod**.

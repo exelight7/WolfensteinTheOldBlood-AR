@@ -11,6 +11,13 @@
       "size": 0,
       "sha256": "<sha256-of-installer>",
       "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.1/WolfensteinAR-Manager-1.0.1-x64-setup.exe"
+    },
+    {
+      "name": "WolfensteinAR-Manual-1.0.1.zip",
+      "kind": "manual",
+      "size": 0,
+      "sha256": "<sha256-of-manual-package>",
+      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.1/WolfensteinAR-Manual-1.0.1.zip"
     }
   ],
   "changelogUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/blob/main/CHANGELOG.md",
