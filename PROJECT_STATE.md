@@ -1,104 +1,60 @@
 # Project state
 
-Date: 2026-10-19
+Date: 2026-10-24
 
-## Localization
+## Release 1.0.1
 
-- Phase: **complete** for the confirmed electronic-text corpus of 3574 records
-  (3572 `strings/english.lang` + 2 loose driver-warning strings).
-- Counts: **3376 translated**, **198 `do_not_translate`** (technical labels,
-  empty/glyph metadata, placeholders) â€” every exclusion carries an explicit
-  reason. Master table: 3572 unique IDs, 82 empty values, 241 duplicate-value
-  groups.
-- The 33-entry main-menu pilot is merged into `translation/arabic/main_menu.json`.
-- This is **not** a claim of 100% of all visible game text. BSWF/menu textures,
-  image textures, Bink video and native engine messages remain **UNCERTIFIED**;
-  see `docs/discovery/TEXT_COVERAGE.md`.
+- Owner authorized stable publication with desktop and manual downloads.
+- Arabic README redesigned with an original red/black SVG banner and clear download choices.
+- Release title and concise notes are Arabic (`release/RELEASE_NOTES_AR.md`).
+- Windows desktop manager: Tauri 2 + React; Steam/manual detection, verified
+  backup, staged install/rollback, repair, restore and update checks.
+- Manual ZIP: Install.cmd / Restore.cmd, Arabic PowerShell guidance, frozen
+  builder and licenses. No Python installation or game archives are required
+  in the download. Builds from the user's supported originals locally.
+- Publication is performed by the v1.0.1 tag workflow; the published manifest
+  is authoritative for downloadable artifact sizes and hashes.
 
-## Third review (v1.0.0 text freeze)
+## Localization and font repair
 
-- Automated re-validation of all 3574 records: **0** token/placeholder errors,
-  **0** master/corpus Arabic mismatches, **0** bidi/PUA artifacts. All flagged
-  formatting patterns were triaged as source-faithful and intentional.
-- Manual sampling of UI/achievement/challenge/dialogue records resolved the 13
-  outstanding `needs_context` items (German `legen/liegen` â†’ `ÙˆØ¶Ø¹/Ø§Ø³ØªÙ„Ù‚Ù‰`) and
-  corrected **20** genuine defects (Agent Two gender, passive voice, plural verb
-  agreement, ghoul plural, an idiom, an elliptical clause and the controller
-  rebind dialog).
-- Evidence: `workspace/release_review/` (`THIRD_REVIEW.local.json`,
-  `RELEASE_LANGUAGE_REPORT.local.json`, `CONTEXT_RESOLUTION.local.json`,
-  `LANGUAGE_FIXES*.local.json`, and timestamped backups).
+- Confirmed corpus: 3574 records, 3376 translated, 198 intentional exclusions.
+  Translation phases 25/50/75/100 are complete. Logical Arabic remains canonical.
+- Added Enigma labels and the photosensitivity warning image in the final build.
+- The font generator previously left 47 Arabic glyphs in each of four fonts
+  with a -1 kerning-start link despite 2162 pair adjustments. All 3358 original
+  glyphs across six fonts establish the correct first-row / -1 relationship.
+- Repaired 188 links. Native glyphs, atlas images, text, advances and pair values
+  are preserved. The independent verifier now checks links and the diagnostic
+  follows them instead of bypassing missing links with a whole-table lookup.
+- Corrected full payload hashes are in config/supported_versions.json:
+  chunk0.index c29a2b83…c006f61; chunk0.resources f14edf90…76bb061.
+- Owner's live installation is the earlier reviewed translation with only the
+  font links repaired: index d6da4489…0739126; resources 14f1a1cd…eb00155.
+  Verified pre-fix backup: workspace/backups/font_joining_pretest/.
+- Vanilla backup workspace/backups/menu_pilot_original/ now has all three exact
+  original files, including the driver warning JSON verified against its hash.
 
-## Build
+## Verification
 
-- Rebuilt the runtime from the frozen source.
-  - `workspace/runtime_full/` â€” `chunk0.index`
-    `5b8b17caâ€¦e2b5916`, `chunk0.resources` `35887440â€¦3e38477`.
-  - `workspace/runtime_complete/` â€” `chunk0.index`
-    `c29a2b83â€¦c006f61`, `chunk0.resources` `46a3dfccâ€¦23f6f60`,
-    `text/english.lang` `b4fb2ddbâ€¦05068017`. Static gate **passes**.
-- Exact hashes are registered in `config/supported_versions.json`.
+- 143 Python tests and 39 Rust tests pass. Frontend typecheck/lint/build and
+  cargo clippy pass. Public-repository guard reports zero violations.
+- Frozen builder generated the manual payload with the expected full hashes.
+- Manual install and restore on an isolated copy of the supported vanilla
+  files succeeded; all three restored hashes matched exactly.
+- Unknown-state refusal was tested: installation failed without changing files.
+- NSIS installer was silently installed to an isolated directory; bundled
+  sidecar/OFL/dependency notices and packaged-app launch were verified.
+- Earlier Arabic main-menu rendering was confirmed by the owner. Visual
+  confirmation of this font-link repair and a full playthrough remain pending.
+  Do not describe static verification as a real game screenshot.
 
-## Installation
+## Scope and remaining work
 
-- The owner's machine currently runs the previous review build
-  (`runtime_complete_reviewed`: `chunk0.index` `d6da4489â€¦0739126`,
-  `chunk0.resources` `217e6189â€¦ec504511`). The v1.0.0 build above is **not yet
-  installed locally**; the desktop installer owns that operation.
-- The NSIS installer was built and silently test-installed to a temporary folder;
-  the installed app launches and bundles `resources/sidecar/wtob-build.exe`.
-- Rollback keystones: `workspace/backups/menu_pilot_original/` (vanilla) and
-  `workspace/backups/runtime_complete_reviewed_pretest/`. `scripts/UNINSTALL_*.ps1`
-  restore the vanilla state.
-
-## Desktop app
-
-- Tauri 2 + React manager under `app/`: Steam/manual detection, hash-based state
-  classification, verified backup, transactional install/rollback, repair,
-  restore, update checks and an Arabic RTL UI.
-- The sidecar (`tools/release_build.py`, packaged as
-  `resources/sidecar/wtob-build.exe`) rebuilds from the user's own verified vanilla
-  `chunk0`, validates every shipped English hash and reproduces the exact v1
-  payload hashes (`c29a2b83â€¦`, `46a3dfccâ€¦`, `d995be90â€¦`).
-- Installer: `WolfensteinAR-Manager-1.0.0-x64-setup.exe`, 44,734,430 bytes
-  (42.66 MiB), SHA-256
-  `cfe7c3684af82c32df720acd739fb3b6d3837ddd2f9f11c322deab8716d4f71a`
-  (values published on the GitHub Release; the local build differs only in
-  size/hash because the CI runner rebuilds the binary).
-- Update manifest: `release/release-manifest.json` (camelCase schema consumed by
-  `app/src-tauri/src/manifest.rs`).
-
-## Repository
-
-- Open-source audit clean: no secrets, no developer absolute paths, no
-  English/proprietary content. `.gitignore` hardened for Node/Rust builds, env
-  files, archives, generated release data and generic `*.local.*`.
-- Licensing: code MIT (`LICENSE`). Translation-data licensing is still an open
-  owner decision (see `DECISIONS.md`).
-- Tests: **137** Python tests plus **39** Rust tests. Frontend typecheck/lint and
-  `cargo clippy --all-targets -- -D warnings` pass.
-
-## Release gates
-
-| Gate | Status |
-| --- | --- |
-| Localization review + freeze | PASS |
-| Static build verification | PASS |
-| Language gate | PASS |
-| Public-repo gate | PASS |
-| Python test suite | PASS (137) |
-| Rust tests + clippy | PASS (39) |
-| App typecheck + lint | PASS |
-| Frontend production build | PASS |
-| NSIS installer exists | PASS (42.66 MiB) |
-| Packaged sidecar reproduces v1 hashes | PASS |
-| Backup/restore rollback tests | PASS |
-| Update manifest | PASS |
-| CI + release workflows | PASS |
-| GitHub tag `v1.0.0` + Release | PENDING |
-
-## NEXT ACTION
-
-Run the final gates from a clean worktree, commit the release, push `main`, tag
-`v1.0.0`, and publish the GitHub Release with the installer,
-`release-manifest.json` and `SHA256SUMS.txt`.
+- Corpus completion is 100%; coverage of every image/video/native message is
+  not certified. See docs/discovery/TEXT_COVERAGE.md.
+- Translation-data licensing is still an owner decision; code is MIT and the
+  IBM font is OFL. Both downloadable packages include license notices.
+- Additional stores/builds need separate verification. The installer is unsigned.
+- Historical pilot scripts remain research tools; current installation guidance
+  is docs/build/INSTALL_GUIDE.md. Do not publish proprietary local references,
+  extracted assets, backups or generated game archives.

@@ -9,6 +9,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import build_sidecar  # noqa: E402
 import prepare_release_data  # noqa: E402
 import release_build  # noqa: E402
+import make_release_manifest  # noqa: E402
 
 
 def sha(value: str) -> str:
@@ -128,7 +129,7 @@ def test_release_manifest_matches_installer_version():
     manifest = json.loads(
         (ROOT / "release" / "release-manifest.json").read_text(encoding="utf-8")
     )
-    assert manifest["version"] == "1.0.0"
+    assert manifest["version"] == "1.0.1"
     assert manifest["channel"] == "stable"
     assert manifest["gameVersion"] == "616161"
     assert manifest["files"]
@@ -136,3 +137,23 @@ def test_release_manifest_matches_installer_version():
         assert len(file["sha256"]) == 64
         assert file["sha256"] == file["sha256"].lower()
         assert file["downloadUrl"].startswith("https://")
+
+def test_generated_manifest_hashes_both_downloads(tmp_path, monkeypatch):
+    installer = tmp_path / "program.exe"
+    manual = tmp_path / "manual.zip"
+    output = tmp_path / "manifest.json"
+    installer.write_bytes(b"synthetic installer")
+    manual.write_bytes(b"synthetic manual package")
+    monkeypatch.setattr(sys, "argv", [
+        "manifest", "--installer", str(installer), "--manual", str(manual),
+        "--version", "1.0.1", "--minimum-app-version", "1.0.1",
+        "--output", str(output),
+    ])
+    make_release_manifest.main()
+    manifest = json.loads(output.read_text(encoding="utf-8"))
+    assert manifest["version"] == manifest["minimumAppVersion"] == "1.0.1"
+    assert [item["kind"] for item in manifest["files"]] == ["installer", "manual"]
+    for item, path in zip(manifest["files"], (installer, manual)):
+        assert item["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+        assert item["size"] == path.stat().st_size
+        assert item["downloadUrl"].endswith("/v1.0.1/" + path.name)

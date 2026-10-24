@@ -47,9 +47,20 @@ def parse_font(data):
     codes = list(struct.unpack_from("<" + "I" * count, data, 12 + count * 12))
     end = 12 + count * 16
     total = struct.unpack_from(">H", data, end)[0]
-    kerning = [(codes[a], codes[b], adj)
-               for a, b, adj in (struct.unpack_from("<HHf", data, end + 2 + i * 8)
-                                 for i in range(total))]
+    pairs = [struct.unpack_from("<HHf", data, end + 2 + i * 8)
+             for i in range(total)]
+    kerning = []
+    for index, glyph in enumerate(glyphs):
+        start = struct.unpack_from("<h", glyph, 10)[0]
+        if start == -1:
+            continue
+        if not 0 <= start < total or pairs[start][0] != index:
+            raise ValueError("Invalid glyph kerning start")
+        # A flat-table lookup hides missing links in the font's glyph records.
+        for previous, following, adjustment in pairs[start:]:
+            if previous != index:
+                break
+            kerning.append((codes[previous], codes[following], adjustment))
     return glyphs, codes, kerning
 
 

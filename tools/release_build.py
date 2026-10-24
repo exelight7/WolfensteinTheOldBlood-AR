@@ -108,7 +108,7 @@ def main() -> None:
     parser.add_argument("--baseline", type=Path, default=None,
                         help="flat folder with verified vanilla chunk0.index/resources")
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--version", default="1.0.0")
+    parser.add_argument("--version", default="1.0.1")
     parser.add_argument("--keep-work", action="store_true")
     args = parser.parse_args()
 

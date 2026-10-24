@@ -11,6 +11,7 @@ import io
 import json
 import os
 import re
+import struct
 import sys
 from collections import Counter
 from pathlib import Path
@@ -159,6 +160,11 @@ def main():
         native = parse_kerning(before)
         total = parse_kerning(after)
         added = [p for p in total if p not in set(native)]
+        starts = {}
+        for index, (previous, _, _) in enumerate(total):
+            starts.setdefault(previous, index)
+        indices_valid = all(struct.unpack_from("<h", glyph, 10)[0] == starts.get(i, -1)
+                            for i, glyph in enumerate(a_glyphs))
         font_report[name] = dict(
             native_glyphs=len(b_glyphs), built_glyphs=len(a_glyphs),
             glyphs_appended=len(a_glyphs) - len(b_glyphs),
@@ -169,6 +175,7 @@ def main():
             added_all_negative=all(px < 0 for _, _, px in added),
             added_target_appended_only=all(a >= len(b_glyphs) for a, _, _ in added),
             sorted_unique=(total == sorted(set(total))),
+            glyph_kerning_indices_valid=indices_valid,
         )
         if not all([font_report[name]["prefix_records_preserved"],
                     font_report[name]["prefix_codes_preserved"],
@@ -176,7 +183,8 @@ def main():
                     font_report[name]["native_kern_preserved"],
                     font_report[name]["added_all_negative"],
                     font_report[name]["added_target_appended_only"],
-                    font_report[name]["sorted_unique"]]):
+                    font_report[name]["sorted_unique"],
+                    font_report[name]["glyph_kerning_indices_valid"]]):
             raise ValueError("Font invariant violated: %s" % name)
 
     # V4 joining pairs remain a subset of the built futura table

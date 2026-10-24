@@ -23,10 +23,11 @@ def sha256(path: Path) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--installer", type=Path, required=True)
-    parser.add_argument("--version", default="1.0.0")
+    parser.add_argument("--version", default="1.0.1")
+    parser.add_argument("--manual", type=Path, default=None)
     parser.add_argument("--tag", default=None)
     parser.add_argument("--output", type=Path, default=Path("release/release-manifest.json"))
-    parser.add_argument("--minimum-app-version", default="1.0.0")
+    parser.add_argument("--minimum-app-version", default="1.0.1")
     parser.add_argument("--game-version", default="616161")
     args = parser.parse_args()
 
@@ -56,6 +57,17 @@ def main() -> None:
         "changelogUrl": f"{REPO}/blob/main/CHANGELOG.md",
         "downloadUrl": url,
     }
+    if args.manual is not None:
+        manual = args.manual.resolve()
+        if not manual.is_file():
+            raise SystemExit(f"manual package not found: {manual}")
+        manifest["files"].append({
+            "name": manual.name,
+            "kind": "manual",
+            "size": manual.stat().st_size,
+            "sha256": sha256(manual),
+            "downloadUrl": f"{REPO}/releases/download/{tag}/{quote(manual.name, safe='')}",
+        })
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

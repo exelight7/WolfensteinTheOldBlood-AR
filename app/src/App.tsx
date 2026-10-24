@@ -176,7 +176,7 @@ export default function App() {
         <div className="mt-auto rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
           <div className="flex items-center gap-2 text-xs text-slate-400">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            <span>الإصدار {info?.appVersion ?? "1.0.0"}</span>
+            <span>الإصدار {info?.appVersion ?? "1.0.1"}</span>
           </div>
           <div className="mt-2 flex items-center gap-2 text-[11px] text-slate-500">
             {busy ? <><Spinner className="h-3 w-3" /> {busyLabel}</> : <><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> جاهز</>}

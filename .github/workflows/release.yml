@@ -52,6 +52,9 @@ jobs:
       - name: Build sidecar
         run: python tools/build_sidecar.py
 
+      - name: Build manual installation package
+        run: python tools/build_manual_package.py --out "release/WolfensteinAR-Manual-${{ env.VERSION }}.zip"
+
       - name: Install frontend dependencies
         working-directory: app
         run: npm ci
@@ -80,21 +83,26 @@ jobs:
           Copy-Item -LiteralPath $built.FullName -Destination $installer -Force
           python -X utf8 tools/make_release_manifest.py `
             --installer $installer --tag $env:TAG `
+            --version $env:VERSION --minimum-app-version $env:VERSION `
+            --manual "release/WolfensteinAR-Manual-$env:VERSION.zip" `
             --output release/release-manifest.json
           $hash = (Get-FileHash -LiteralPath $installer -Algorithm SHA256).Hash.ToLower()
           "$hash  $([IO.Path]::GetFileName($installer))" | Set-Content release/SHA256SUMS.txt -Encoding ascii
+          $manual = "release/WolfensteinAR-Manual-$env:VERSION.zip"
+          $manualHash = (Get-FileHash -LiteralPath $manual -Algorithm SHA256).Hash.ToLower()
+          "$manualHash  $([IO.Path]::GetFileName($manual))" | Add-Content release/SHA256SUMS.txt -Encoding ascii
           "INSTALLER=$installer" >> $env:GITHUB_ENV
 
       - name: Verify installer bundles the sidecar
         shell: pwsh
         run: |
-          $target = Join-Path $env:RUNNER_TEMP "wtob-release-install"
-          Remove-Item -Recurse -Force $target -ErrorAction SilentlyContinue
-          Start-Process -FilePath $env:INSTALLER -ArgumentList '/S',"/D=$target" -Wait
+          $target = Join-Path $env:RUNNER_TEMP "wtob-release-install-${{ github.run_id }}-${{ github.run_attempt }}"
+          if (Test-Path -LiteralPath $target) { throw "Temporary install target already exists" }
+          Start-Process -FilePath $env:INSTALLER -ArgumentList '/S',"/D=$target" -WindowStyle Hidden -Wait
           if (-not (Test-Path "$target/resources/sidecar/wtob-build.exe")) {
             throw "Installed package is missing resources/sidecar/wtob-build.exe"
           }
-          Start-Process -FilePath "$target/uninstall.exe" -ArgumentList '/S' -Wait
+          Start-Process -FilePath "$target/uninstall.exe" -ArgumentList '/S' -WindowStyle Hidden -Wait
 
       - name: Remove superseded release assets
         if: startsWith(github.ref, 'refs/tags/')
@@ -104,6 +112,7 @@ jobs:
         run: |
           $keep = @(
             "WolfensteinAR-Manager-$env:VERSION-x64-setup.exe",
+            "WolfensteinAR-Manual-$env:VERSION.zip",
             "release-manifest.json",
             "SHA256SUMS.txt"
           )
@@ -120,6 +129,7 @@ jobs:
           name: Wolfenstein-AR-Manager
           path: |
             app/src-tauri/target/release/bundle/nsis/WolfensteinAR-Manager-*-x64-setup.exe
+            release/WolfensteinAR-Manual-*.zip
             release/release-manifest.json
             release/SHA256SUMS.txt
 
@@ -128,10 +138,11 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.TAG }}
-          name: "Wolfenstein: The Old Blood — Arabic ${{ env.VERSION }}"
-          generate_release_notes: true
+          name: "التعريب العربي — الإصدار ${{ env.VERSION }}"
+          body_path: release/RELEASE_NOTES_AR.md
           fail_on_unmatched_files: true
           files: |
             app/src-tauri/target/release/bundle/nsis/WolfensteinAR-Manager-*-x64-setup.exe
+            release/WolfensteinAR-Manual-*.zip
             release/release-manifest.json
             release/SHA256SUMS.txt

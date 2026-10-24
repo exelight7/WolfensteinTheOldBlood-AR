@@ -1,21 +1,28 @@
-# Installation
+# تثبيت التعريب — 1.0.1
 
-An experimental 33-entry menu pilot has been installed locally on the exact source hash pair for Steam build 616161. The ordered rebuild passed startup and the owner's Arabic main-menu screenshot. This is not a public release or full-game verification.
+حمّل إحدى الحزمتين من [صفحة الإصدار](https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/tag/v1.0.1).
+أغلق اللعبة أولًا. تدعم الحزمتان نسخة Steam، البناء 616161، على ويندوز 64 بت.
 
-Close the game before installation or restoration. From the repository root, after building with BUILD_GUIDE.md:
+## البرنامج
 
-```powershell
-.\scripts\INSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
-.\scripts\UNINSTALL_ARABIC.ps1 -GamePath "<your Steam game directory>"
-```
+ثبّت `WolfensteinAR-Manager-1.0.1-x64-setup.exe` وافتح المدير. اختر مجلد اللعبة
+إذا لم يكتشفه تلقائيًا، ثم اضغط «تثبيت التعريب». انتظر اكتمال النسخ الاحتياطي
+والتحقق قبل تشغيل اللعبة. للرجوع استخدم «استعادة الأصل» قبل إزالة البرنامج.
 
-Equivalent Python commands:
+## الحزمة اليدوية
 
-```powershell
-python tools/install_menu_pilot.py --game "<your Steam game directory>"
-python tools/install_menu_pilot.py --game "<your Steam game directory>" --uninstall
-```
+فك `WolfensteinAR-Manual-1.0.1.zip` بالكامل في مجلد مستقل. شغّل `Install.cmd`
+وأدخل مسار مجلد اللعبة الذي يحتوي على `WolfOldBlood_x64.exe`. لا تحتاج Python
+أو Node؛ أداة البناء المستقلة مرفقة. للرجوع شغّل `Restore.cmd`.
 
-The installer refuses unknown current hashes or a running game, verifies generated files, creates exclusive original backups, stages both replacements and verifies installed hashes. A partial replacement failure restores the already-replaced files. Uninstall requires known patch hashes plus verified original backups and restores the original bytes.
+تُحفظ النسخة الأصلية والنسخ السابقة في `.WolfensteinAR-manual` داخل مجلد
+اللعبة. احتفظ بهذا المجلد. إذا كانت اللعبة معدّلة مسبقًا فقد تحتاج إلى تحديد
+نسخة احتياطية أصلية تضم `chunk0.index` و`chunk0.resources` و
+`graphicsdriverwarningloc.json`. عند فقدانها استخدم التحقق من ملفات اللعبة
+عبر Steam أولًا. لا تستبدل الحزمة ملفات لا تتعرف عليها.
 
-Keep `workspace/backups/menu_pilot_original/` and `workspace/menu_pilot_ordered/`. The local install manifest records exact paths and hashes. Both directories are ignored by Git. A real install → uninstall → reinstall round trip passed for the initial pilot; it was later restored and superseded by the ordered build after the initial build failed at runtime. Current ordered installed hashes match its manifest. The previous workspace/menu_pilot files remain only as failure evidence and are blocked from installation.
+قد تحتاج صلاحية الكتابة على مجلد اللعبة ومساحة مؤقتة للبناء والنسخ الاحتياطية.
+لا تغلق نافذة التثبيت أثناء العمل. استخدم طريقة التثبيت نفسها للاستعادة.
+
+أدوات `INSTALL_ARABIC.ps1` القديمة وتجارب القوائم مراجع تطوير تاريخية، وليست
+طريقة تثبيت الإصدار الحالي.

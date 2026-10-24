@@ -1,18 +1,25 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "channel": "stable",
-  "minimumAppVersion": "1.0.0",
+  "minimumAppVersion": "1.0.1",
   "gameVersion": "616161",
-  "releaseDate": "2026-10-19",
+  "releaseDate": "2026-10-24",
   "files": [
     {
-      "name": "WolfensteinAR-Manager-1.0.0-x64-setup.exe",
+      "name": "WolfensteinAR-Manager-1.0.1-x64-setup.exe",
       "kind": "installer",
-      "size": 44734430,
-      "sha256": "cfe7c3684af82c32df720acd739fb3b6d3837ddd2f9f11c322deab8716d4f71a",
-      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe"
+      "size": 48638797,
+      "sha256": "21627f3451bed9980d62936fe26221d10a9d7d0449e090bb4acb57b5d30a046b",
+      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.1/WolfensteinAR-Manager-1.0.1-x64-setup.exe"
+    },
+    {
+      "name": "WolfensteinAR-Manual-1.0.1.zip",
+      "kind": "manual",
+      "size": 46553478,
+      "sha256": "7befe2bc85df1a8e1b82778dcd10cd89f49c85dd63807ec7dc2cd86bda70036d",
+      "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.1/WolfensteinAR-Manual-1.0.1.zip"
     }
   ],
   "changelogUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/blob/main/CHANGELOG.md",
-  "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.0/WolfensteinAR-Manager-1.0.0-x64-setup.exe"
+  "downloadUrl": "https://github.com/exelight7/WolfensteinTheOldBlood-AR/releases/download/v1.0.1/WolfensteinAR-Manager-1.0.1-x64-setup.exe"
 }

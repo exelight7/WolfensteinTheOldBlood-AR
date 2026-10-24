@@ -1,8 +1,8 @@
 # Font system discovery
 
-Six font-type records and associated materials/atlases were extracted from chunk0. Metrics payloads begin `idf+`; paths end `64_df.dat`. Atlas paths end `.bimage`. The `df` naming suggests distance-field rendering, but this interpretation is UNVERIFIED.
+Six font-type records and associated materials/atlases were extracted from chunk0. Metrics payloads begin `idf+`; paths end `64_df.dat`. Atlas paths end `.bimage`. Four English fonts receive generated Arabic distance-field glyphs.
 
-Glyph records, character map, kerning data, texture format, native Arabic coverage, runtime shaping and fallback font selection are UNVERIFIED. Do not build a production font by guessing field meanings from the signature alone. Require field-level round-trip validation on all six metrics resources and corresponding texture inspection.
+Glyph records, sorted character maps, pair tables and the four single-image atlas layouts are parsed and round-trip checked by the local tools. Runtime fallback behavior and complete visual coverage at all sizes are not certified. See [Arabic rendering](ARABIC_RENDERING.md) for the current joining repair and its pending in-game check.
 
 IBM Plex Arabic Regular was fetched unmodified from official IBM commit 39276912b05f700ee1dd491950c35d8697214208. TTF SHA-256: 8e0f1046c736bf939d4939ee3ae0116acf61cbcd6592deae7656761627080981. License: licenses/IBM_Plex_OFL.txt, identical to the font package license. The TTF is not modified or publicly bundled. A derivative font must respect the reserved name Plex and retain OFL licensing.
 
@@ -14,8 +14,10 @@ For the local idf+ files, interpreting the big-endian u16 at byte 10 as count, s
 
 ## Experimental pilot format and output
 
-Observed glyph records fit little-endian `BBbbHHHh`: byte width/height, signed top/left, u16 advance/x/y, signed auxiliary index. The final field is preserved for existing glyphs and set to -1 for appended glyphs (many original records use -1). Character map follows glyph records. Remaining data fits a big-endian u16 pair count plus count * 8 bytes; it is preserved unchanged. These layouts parse all six source fonts exactly; auxiliary/kerning runtime semantics still need verification.
+Glyph records fit little-endian `BBbbHHHh`: byte width/height, signed top/left, u16 advance/x/y, and a signed kerning-start index. The character map follows the glyph records. Remaining data is a big-endian u16 pair count plus sorted eight-byte `<HHf` entries (previous glyph index, next glyph index, adjustment). Across all 3358 original glyphs in six fonts, the final glyph field equals the first pair row for that glyph, or -1 exactly when it has no outgoing pairs. This format relationship is measured; engine lookup behavior is inferred from it.
+
+The 2026-10-24 repair assigns those indices to appended glyphs after sorting the combined pair table. Native glyph records and pair values remain byte-identical because appended glyph indices sort after native ones. Previously leaving every appended index at -1 made the Arabic pair table unreachable in an index-based reader. Indices must fit a signed 16-bit field; -1 remains the no-pairs sentinel.
 
 English font bimages have a 72-byte header and one raw 8-bit alpha image. Four atlas resources (book, medium, arial_black, courier) are expanded vertically; their original pixel data is byte-identical. Header image heights and payload size are updated consistently. Arabic forms are rasterized from unmodified IBM Plex Arabic at size 64 and converted to an experimental distance field with 8-pixel padding. New glyphs append at U+E000 onward, leaving original codepoint and auxiliary indices intact.
 
-The cyrillic atlas has 11 mip levels. Initial strict single-image validation rejected it; it is excluded from this English pilot instead of relaxing validation. Japanese resources are also unchanged. Native Arabic was not tested; pre-shaped PUA is an experimental pilot choice to obtain a first visual test, not a proven final rendering strategy.
+The cyrillic atlas has 11 mip levels and is excluded from the English build rather than relaxing single-image validation. Japanese resources are also unchanged. The Arabic logical source remains separate from generated presentation forms and PUA runtime data.

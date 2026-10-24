@@ -12,10 +12,10 @@ def test_versions_are_in_sync():
     cargo = (APP / "src-tauri" / "Cargo.toml").read_text(encoding="utf-8")
     supported = json.loads((ROOT / "config" / "supported_versions.json").read_text(encoding="utf-8"))
     cargo_version = re.search(r'^version = "([^"]+)"', cargo, re.MULTILINE).group(1)
-    assert package["version"] == "1.0.0"
-    assert tauri["version"] == "1.0.0"
-    assert cargo_version == "1.0.0"
-    assert supported["app_version"] == "1.0.0"
+    assert package["version"] == "1.0.1"
+    assert tauri["version"] == "1.0.1"
+    assert cargo_version == "1.0.1"
+    assert supported["app_version"] == "1.0.1"
 
 
 def test_tauri_bundles_sidecar_resources_for_nsis():
@@ -39,7 +39,12 @@ def test_supported_versions_has_v1_hashes():
     assert entry["steam_app_id"] == 350080
     assert entry["game_build"] == "616161"
     assert entry["localized"]["base/chunk0.index"].startswith("c29a2b83")
-    assert entry["localized"]["base/chunk0.resources"].startswith("46a3dfcc")
+    assert entry["localized"]["base/chunk0.resources"] == (
+        "f14edf906c0358d5d35dc8bb592a6bfaebd88ff6c9df458e2d8805e5376bb061"
+    )
+    prior = {state["base/chunk0.resources"] for state in entry["also_accepted_states"]}
+    assert "46a3dfccaf83c3bf89c1d07c1271155c5144429a8c9b665d331b772fe23f6f60" in prior
+    assert "14f1a1cd2d986706916c9f139fee165e79e71049f15e671684de9bd92eb00155" in prior
     assert entry["localized"]["base/graphicsdriverwarningloc.json"].startswith("d995be90")
     assert entry["vanilla"]["base/chunk0.index"].startswith("3aa93b17")
 

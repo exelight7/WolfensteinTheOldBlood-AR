@@ -1,6 +1,6 @@
 [package]
 name = "wolfenstein-ar-manager"
-version = "1.0.0"
+version = "1.0.1"
 description = "Arabic localization manager for Wolfenstein: The Old Blood"
 authors = ["kaitolight7 and contributors"]
 edition = "2021"

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ولفنشتاين: ذا أولد بلود — التعريب العربي</title>
+  <desc id="desc">تصميم أصلي بألوان حمراء وسوداء وخطوط هندسية. إصدار عربي مع تثبيت بالبرنامج أو يدويًا.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#19191e"/>
+      <stop offset="1" stop-color="#09090c"/>
+    </linearGradient>
+    <linearGradient id="red" x2="1" y2="1">
+      <stop stop-color="#be2639"/>
+      <stop offset="1" stop-color="#74101f"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="360" rx="14" fill="url(#bg)"/>
+  <rect width="1200" height="360" rx="14" fill="url(#grid)"/>
+  <path d="M0 0H308L167 360H0Z" fill="url(#red)"/>
+  <path d="M325 0H336L195 360H184Z" fill="#e45162" opacity=".45"/>
+  <path d="M0 274L186 87M0 311L204 107M35 360L222 173" stroke="#fddfe2" stroke-opacity=".12" stroke-width="2"/>
+  <rect x="47" y="46" width="99" height="4" fill="#f7eeee"/>
+  <path d="M47 62H115M47 73H93" stroke="#f7eeee" stroke-opacity=".5" stroke-width="2"/>
+  <path d="M49 300H128M49 310H101" stroke="#f7eeee" stroke-opacity=".5" stroke-width="2"/>
+  <g font-family="Segoe UI, Tahoma, Arial, sans-serif" text-anchor="middle" direction="rtl">
+    <text x="716" y="79" fill="#f2818d" font-size="17" font-weight="600">التعريب العربي</text>
+    <text x="716" y="149" fill="#f7f3f0" font-size="56" font-weight="700">ولفنشتاين</text>
+    <text x="716" y="202" fill="#f7f3f0" font-size="35" font-weight="600">ذا أولد بلود</text>
+    <path d="M666 227H766" stroke="#c93449" stroke-width="3"/>
+    <text x="716" y="268" fill="#c8c5c7" font-size="20">القصة بالعربية. والتثبيت بخطوات بسيطة.</text>
+    <text x="716" y="310" fill="#98949a" font-size="16">برنامج عربي · تثبيت يدوي · استعادة الأصل</text>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="359" rx="14" fill="none" stroke="#fff" stroke-opacity=".1"/>
+</svg>

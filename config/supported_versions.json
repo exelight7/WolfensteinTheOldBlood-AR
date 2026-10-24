@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "app_version": "1.0.0",
+  "app_version": "1.0.1",
   "supported_versions": [
     {
       "id": "steam-350080-build-616161",
@@ -18,7 +18,7 @@
       },
       "localized": {
         "base/chunk0.index": "c29a2b833247562ddbb52d40598240782c1f9de6963347172c3e886f7c006f61",
-        "base/chunk0.resources": "46a3dfccaf83c3bf89c1d07c1271155c5144429a8c9b665d331b772fe23f6f60",
+        "base/chunk0.resources": "f14edf906c0358d5d35dc8bb592a6bfaebd88ff6c9df458e2d8805e5376bb061",
         "base/graphicsdriverwarningloc.json": "d995be90351017dfbc645e6018269e98a146556b927908196b19d77b43bbf1b5"
       },
       "also_accepted_states": [
@@ -26,6 +26,17 @@
           "label": "runtime_complete_reviewed (previous review build)",
           "base/chunk0.index": "d6da4489a13b6b14198d73224c5abe0499f63c4d96d72c1dd021412fe0739126",
           "base/chunk0.resources": "217e6189ed58bccb937da3a99d65525c65c7bf431ce667e905b65fb9ec504511"
+        },
+        {
+          "label": "v1.0.0 public release (before glyph kerning index repair)",
+          "base/chunk0.index": "c29a2b833247562ddbb52d40598240782c1f9de6963347172c3e886f7c006f61",
+          "base/chunk0.resources": "46a3dfccaf83c3bf89c1d07c1271155c5144429a8c9b665d331b772fe23f6f60",
+          "base/graphicsdriverwarningloc.json": "d995be90351017dfbc645e6018269e98a146556b927908196b19d77b43bbf1b5"
+        },
+        {
+          "label": "runtime_complete_reviewed with local font joining repair",
+          "base/chunk0.index": "d6da4489a13b6b14198d73224c5abe0499f63c4d96d72c1dd021412fe0739126",
+          "base/chunk0.resources": "14f1a1cd2d986706916c9f139fee165e79e71049f15e671684de9bd92eb00155"
         }
       ],
       "installed_loose_note": "base/graphicsdriverwarningloc.json is a loose Arabic file already present after localization; it is not written by chunk0 install."

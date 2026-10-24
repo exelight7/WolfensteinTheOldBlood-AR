@@ -151,8 +151,19 @@ def extend_font(metrics, image, font_path, mapping, joining_kern=False, kern_ove
     if joining_kern:
         emitted = joining_kernings(additions, kern_overlap)
         assert not any(a < len(glyphs) for a, _, _ in emitted), "kern pair must target appended glyphs"
-        pair_table = native + emitted
+        pair_table = sorted(native + emitted)
         kerning = pack_kerning(pair_table)
+        starts = {}
+        for index, (previous, _, _) in enumerate(pair_table):
+            starts.setdefault(previous, index)
+        for addition in additions:
+            # idf+ readers enter the pair table through this per-glyph offset.
+            start = starts.get(addition["glyph_index"], -1)
+            if start > 32767:
+                raise ValueError("Kerning start exceeds signed glyph index")
+            packed = bytearray(addition["packed"])
+            struct.pack_into("<h", packed, 10, start)
+            addition["packed"] = bytes(packed)
     height = (y + row_height + 15) // 16 * 16
     expanded = Image.new("L", (atlas.width, height))
     expanded.paste(atlas, (0, 0))

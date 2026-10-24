@@ -16,12 +16,12 @@ export default function About({ app }: { app: Controller }) {
             </div>
             <div>
               <h3 className="text-lg font-bold text-white">Wolfenstein: The Old Blood — العربية</h3>
-              <p className="text-xs text-slate-400">مدير التعريب · إصدار {info?.appVersion ?? "1.0.0"}</p>
+              <p className="text-xs text-slate-400">مدير التعريب · إصدار {info?.appVersion ?? "1.0.1"}</p>
             </div>
           </div>
           <div className="mt-5 grid grid-cols-2 gap-4">
-            <InfoRow label="إصدار التطبيق" value={info?.appVersion ?? "1.0.0"} />
-            <InfoRow label="إصدار التعريب" value={info?.localizationVersion ?? "1.0.0"} />
+            <InfoRow label="إصدار التطبيق" value={info?.appVersion ?? "1.0.1"} />
+            <InfoRow label="إصدار التعريب" value={info?.localizationVersion ?? "1.0.1"} />
             <InfoRow label="الترخيص" value={info?.license ?? "MIT"} />
             <InfoRow label="المعرّف" value="com.exelight7.wtob.arabic" mono />
           </div>

@@ -3,6 +3,14 @@
 All notable changes to this project are documented here.
 This project follows [semantic versioning](https://semver.org/).
 
+## [1.0.1] — 2026-10-24
+
+- إصلاح فهارس اتصال الحروف العربية في الخطوط الأربعة.
+- إضافة حزمة تثبيت يدوي مستقلة مع النسخ الاحتياطي والاستعادة.
+- تحديث البرنامج وتحسين صفحة المشروع بالعربية.
+
+التحقق الآلي والتثبيت والاستعادة ناجحة؛ لم يُعتمد اختبار لعب كامل بعد.
+
 ## [1.0.0] â€” 2026-10-19
 
 First public release of the Arabic localization of the confirmed electronic-text

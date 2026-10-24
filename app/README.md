@@ -33,7 +33,7 @@ npm run tauri build
 ```
 
 The installer is written to
-`app/src-tauri/target/release/bundle/nsis/WolfensteinAR-Manager-1.0.0-x64-setup.exe`.
+`app/src-tauri/target/release/bundle/nsis/WolfensteinAR-Manager-1.0.1-x64-setup.exe`.
 
 `prepare_release_data.py` copies the public translation partitions and the
 hash-pinned IBM Plex Sans Arabic font, and converts `config/pua_mapping.json` into
@@ -43,8 +43,8 @@ Git and rebuilt in CI.
 
 ## Data and safety
 
-- The installer contains no game archives, executable, English source text or
-  font binary.
+- The installer contains no game archives, game executable or full English
+  script. The builder includes the unmodified IBM Arabic font under the bundled OFL.
 - The backend resolves payloads from the user's own vanilla archives (or the
   app's verified backup) and validates the sidecar's output hashes before use.
 - A backup is always required before a non-vanilla install; restore refuses
